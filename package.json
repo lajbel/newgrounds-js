@@ -1,0 +1,23 @@
+{
+    "name": "newgrounds.js",
+    "version": "1.0.0",
+    "description": "Newgrounds API v3, medals & scoreboards!",
+    "main": "src/newgrounds.js",
+    "scripts": {
+        "start": "node src/newgrounds.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "newgrounds",
+        "api",
+        "library",
+        "ngio",
+        "indie",
+        "game"
+    ],
+    "author": "LaJBel",
+    "license": "MIT",
+    "dependencies": {
+        "minify": "^8.0.2"
+    }
+}
