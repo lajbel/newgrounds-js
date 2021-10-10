@@ -1,12 +1,11 @@
 # JavaScript Wrapper for Newgrounds.io V3
 
-[![](https://data.jsdelivr.com/v1/package/gh/lajbel/reversion-newgrounds/badge)](https://www.jsdelivr.com/package/gh/lajbel/reversion-newgrounds)
-![npm](https://img.shields.io/npm/v/newground.js?style=for-the-badge)
+This is a Javascript Library for use the [Newgrounds.io](https://newgrounds.io) functions for your games, like medals or scoreboards!!!
 
 ## Example
 
 ```.js
-const Newgrounds = require("newgrounds.js");
+import Newgrounds from "newgrounds.js";
 
 Newgrounds.Init("appID", "Encry Zip");
 
@@ -26,8 +25,9 @@ Newgrounds.PostScore(12052012, 50);
 ## Install
 
 npm: `npm i newgrounds.js` <br>
+cdn: [jsdelivr](https://cdn.jsdelivr.net/gh/lajbel/newgrounds.js@master/src/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@1.0.0/src/newgrounds.mjs)
 
-## Credits and thanks
+## Credits
 
 [Javascript Wrapper](https://github.com/KilledByAPixel/newgrounds) by [KilledByAPixel](https://github.com/KilledByAPixel) <br>
 [Javascript Re-Wrapper](https://github.com/lajbel/reversion-newgrounds) by [Me](https://github.com/lajbel)

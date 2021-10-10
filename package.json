@@ -1,7 +1,7 @@
 {
     "name": "newgrounds.js",
-    "version": "1.0.0",
-    "description": "Newgrounds API v3, medals & scoreboards!",
+    "version": "1.0.1",
+    "description": "Newgrounds.io Functions in your indie game",
     "main": "src/newgrounds.js",
     "scripts": {
         "start": "node src/newgrounds.js",
@@ -16,8 +16,5 @@
         "game"
     ],
     "author": "LaJBel",
-    "license": "MIT",
-    "dependencies": {
-        "minify": "^8.0.2"
-    }
+    "license": "MIT"
 }
