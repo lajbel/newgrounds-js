@@ -4,8 +4,8 @@ This is a Javascript Library for use the [Newgrounds.io](https://newgrounds.io) 
 
 ## Example
 
-```.js
-import Newgrounds from "newgrounds.js";
+```js
+const Newgrounds = require("newgrounds.js");
 
 Newgrounds.Init("appID", "Encry Zip");
 
@@ -25,7 +25,7 @@ Newgrounds.PostScore(12052012, 50);
 ## Install
 
 npm: `npm i newgrounds.js` <br>
-cdn: [jsdelivr](https://cdn.jsdelivr.net/gh/lajbel/newgrounds.js@master/src/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@1.0.0/src/newgrounds.mjs)
+cdn: [jsdelivr](https://cdn.jsdelivr.net/gh/lajbel/newgrounds.js@master/src/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@master/dist/newgrounds.mjs)
 
 ## Credits
 

@@ -2,9 +2,10 @@
     "name": "newgrounds.js",
     "version": "1.0.1",
     "description": "Newgrounds.io Functions in your indie game",
-    "main": "src/newgrounds.js",
+    "main": "sorce/newgrounds.js",
     "scripts": {
-        "start": "node src/newgrounds.js",
+        "start": "node source/newgrounds.js",
+        "build": "node dev/build.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
@@ -16,5 +17,8 @@
         "game"
     ],
     "author": "LaJBel",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "esbuild": "^0.13.6"
+    }
 }
