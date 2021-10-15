@@ -1,3 +1,4 @@
 .config/
 .ump/
 .cache/
+node_modules/
