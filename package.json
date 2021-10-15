@@ -1,6 +1,6 @@
 {
     "name": "newgrounds.js",
-    "version": "1.0.1",
+    "version": "1.1.1",
     "description": "Newgrounds.io Functions in your indie game",
     "main": "sorce/newgrounds.js",
     "scripts": {
