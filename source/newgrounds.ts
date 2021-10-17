@@ -1,4 +1,4 @@
-import { init } from "source/functions/init";
+import { init } from "./functions/init";
 
 const Newgrounds = {
     init,

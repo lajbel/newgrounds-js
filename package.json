@@ -1,18 +1,26 @@
 {
     "name": "newgrounds.js",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "Newgrounds.io Functions in your indie game",
-    "main": "sorce/newgrounds.js",
+    "main": "/source/newgrounds.cjs",
     "homepage": "https://newgrounds.io/",
     "repository": "github:lajbel/newgrounds.js",
     "browser": "dist/newgrounds.js",
-    "module": "/dist/newgrounds.mjs",
-    "types": "/dist/newgrounds.d.ts",
+    "module": "dist/newgrounds.mjs",
+    "types": "dist/newgrounds.d.ts",
     "scripts": {
         "start": "node source/newgrounds.js",
         "build": "node dev/build.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "check": "tsc --noEmit"
+    },
+    "files": [
+        "dist/",
+        "source/"
+    ],
+    "exports": {
+        "import": "dist/newgrounds.mjs",
+        "require": "dist/newgrounds.cjs"
     },
     "keywords": [
         "newgrounds",
