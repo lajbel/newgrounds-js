@@ -26,7 +26,6 @@ newgrounds.postScore(12052012, 50);
 ## Install
 
 npm: `npm i newgrounds.js` <br>
-script: `<script src="https://cdn.jsdelivr.net/npm/newgrounds.js@latest/dist/newgrounds.js"></script>` <br>
 cdn: [jsdelivr](https://cdn.jsdelivr.net/npm/newgrounds.js@latest/dist/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@latest/dist/newgrounds.mjs)
 
 ## TODO
