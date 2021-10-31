@@ -1,6 +1,12 @@
-export function init(appID, cipher=0, config) {
+import { setCrypto } from "../crypto.js";
+
+export function connect(appID, cipher = 0, config = {}) {
     this.appID = appID;
     this.cipher = cipher;
+
+    let ngObj = this;
+
+    setCrypto(ngObj);
 
     this.medalDisplayTime = config.medalDisplayTime || 5;
     this.showPopups = config.showPopups || true; 
@@ -24,5 +30,5 @@ export function init(appID, cipher=0, config) {
         medal.image.src = medal.icon;
 
         if (this.debug) medal.unlocked = 0;
-    }
+    };
 };

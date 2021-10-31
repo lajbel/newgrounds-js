@@ -7,21 +7,11 @@ This is a Javascript Library for use the [Newgrounds.io](https://newgrounds.io) 
 ```js
 const newgrounds = require("newgrounds.js");
 
-newgrounds.init("221592:52192", "fas1234klleal21542as/==");
+newgrounds.connect("533327:b6GaR8Eb", "ivuwzsfewkqñwacRQ==");
 
 newgrounds.unlockMedal(129521);
 newgrounds.postScore(12052012, 50);
 ```
-
-## Functions
-
-`unlockMedal(id)`: Get the medal with the `id` <br>
-`postScores(id, score)`: Post `score` in the scoreboard with the `id` <br>
-`getScores(id, user, period, social, skip, limit)`: [Score Object](http://www.newgrounds.io/help/objects/#score) - Return a Scores Object] 
-`username()`: Get the username of the newgrounds session <br>
-`version()`: Get the version of the newgrounds game <br>
-`isSupporter()`: Get boolean of supporter user  <br>
-`call(component, parameters?)`: Call any component of [Newgrounds.io](https://newgrounds.io) 
 
 ## Install
 
@@ -31,6 +21,7 @@ cdn: [jsdelivr](https://cdn.jsdelivr.net/npm/newgrounds.js@latest/dist/newground
 ## TODO
 
 * Typescript Support
+* Medal/Scoreboard name support for functions
 
 ## Credits
 

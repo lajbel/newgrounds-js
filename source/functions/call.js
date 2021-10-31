@@ -1,4 +1,4 @@
-function encryptCall(call) {
+export function encryptCall(call) {
     if (!this.cipher) return call;
         
     const aesKey = this.CryptoJS.enc.Base64.parse(this.cipher);
@@ -12,7 +12,7 @@ function encryptCall(call) {
 };
 
 export function call(component, parameters=0, async=1) {
-    const call = encryptCall({component, parameters});
+    const call = this.encryptCall({component, parameters});
         
     const input =  {
         app_id: this.appID,
