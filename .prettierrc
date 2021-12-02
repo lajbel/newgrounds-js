@@ -1,0 +1,12 @@
+{
+    "arrowParens": "always",
+    "printWidth": 160,
+    "proseWrap": "always",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "useTabs": true,
+    "tabWidth": 4
+}
