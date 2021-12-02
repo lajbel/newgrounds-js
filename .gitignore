@@ -1,4 +1,12 @@
+# Replit
+
 .config/
-.ump/
+.upm/
 .cache/
+.replit
+replit.nix
+
+# Node and project
+
 node_modules/
+dist/
