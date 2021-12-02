@@ -2,6 +2,8 @@
 
 **Newgrounds.js** is the first good and complete library for use [Newgrounds.io](https://newgrounds.io) functions and utilities for your game. The best? You can use with any framework or game engine of Javascript or web tecnologies, like [Kaboom](https://kaboomjs.com) or [Phaser](https://phaser.io)
 
+[**Docs**](https://github.com/lajbel/newgrounds-js/wiki)
+
 ## Features 🎁
 * Functions with everything your game needs
 * Ability to call the components you want
@@ -24,7 +26,11 @@ newgrounds.postScore(12052012, 50);
 npm: `npm i newgrounds.js` <br>
 cdn: [jsdelivr](https://cdn.jsdelivr.net/npm/newgrounds.js@latest/dist/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@latest/dist/newgrounds.mjs)
 
+## Support
+
+[Buy me a Coffee ☕](https://ko-fi.com/lajbel)
+
 ## Credits
 
-[Javascript Wrapper](https://github.com/KilledByAPixel/newgrounds) by [KilledByAPixel](https://github.com/KilledByAPixel) <br>
-[Javascript Re-Wrapper](https://github.com/lajbel/reversion-newgrounds) by [Me](https://github.com/lajbel)
+[Newgrounds.io](https://newgrounds.io) <br>
+[Javascript Wrapper](https://github.com/KilledByAPixel/newgrounds) by [KilledByAPixel](https://github.com/KilledByAPixel)
