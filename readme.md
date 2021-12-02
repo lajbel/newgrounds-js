@@ -1,6 +1,12 @@
-# JavaScript Wrapper for Newgrounds.io V3
+![ngjsbanner](banner.png)
 
-This is a Javascript Library for use the [Newgrounds.io](https://newgrounds.io) functions for your games, like medals or scoreboards!!!
+**Newgrounds.js** is the first good and complete library for use [Newgrounds.io](https://newgrounds.io) functions and utilities for your game. The best? You can use with any framework or game engine of Javascript or web tecnologies, like [Kaboom](https://kaboomjs.com) or [Phaser](https://phaser.io)
+
+## Features 🎁
+* Functions with everything your game needs
+* Ability to call the components you want
+* Full [**Typescript**](http://typescriptlang.org/) Support (wip)
+* Use with NPM or use the Es6 Module
 
 ## Example
 
@@ -17,11 +23,6 @@ newgrounds.postScore(12052012, 50);
 
 npm: `npm i newgrounds.js` <br>
 cdn: [jsdelivr](https://cdn.jsdelivr.net/npm/newgrounds.js@latest/dist/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@latest/dist/newgrounds.mjs)
-
-## TODO
-
-* Typescript Support
-* Medal/Scoreboard name support for functions
 
 ## Credits
 
