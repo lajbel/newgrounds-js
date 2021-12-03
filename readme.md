@@ -6,9 +6,9 @@
 
 ## Features 🎁
 * Functions with everything your game needs
-* Ability to call the components you want
+* Ability to call all components if you want
 * Full [**Typescript**](http://typescriptlang.org/) Support (wip)
-* Use with NPM or use the Es6 Module
+* Use the npm package or use the ES6 module, or a tag script!
 
 ## Example
 
