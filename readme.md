@@ -7,7 +7,6 @@
 ## Features 🎁
 * Functions with everything your game needs
 * Ability to call all components if you want
-* Full [**Typescript**](http://typescriptlang.org/) Support (wip)
 * Use the npm package or use the ES6 module, or a tag script!
 
 ## Example
@@ -25,10 +24,6 @@ newgrounds.postScore(12052012, 50);
 
 npm: `npm i newgrounds.js` <br>
 cdn: [jsdelivr](https://cdn.jsdelivr.net/npm/newgrounds.js@latest/dist/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@latest/dist/newgrounds.mjs)
-
-## Support
-
-[Buy me a Coffee ☕](https://ko-fi.com/lajbel)
 
 ## Credits
 

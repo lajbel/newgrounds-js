@@ -8,7 +8,7 @@ const formats = [
 ];
 
 formats.forEach((fmt) => {
-	const srcPath = "source/newgrounds.ts";
+	const srcPath = "source/newgrounds.js";
 	const distPath = `dist/newgrounds.${fmt.ext}`;
 
 	console.log(`${srcPath} -> ${distPath}`);
