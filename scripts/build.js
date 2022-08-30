@@ -1,5 +1,4 @@
 const esbuild = require("esbuild");
-const ts = require("typescript");
 
 const formats = [
     { format: "iife", ext: "js",  },
@@ -8,7 +7,7 @@ const formats = [
 ];
 
 formats.forEach((fmt) => {
-	const srcPath = "source/newgrounds.js";
+	const srcPath = "src/newgrounds.js";
 	const distPath = `dist/newgrounds.${fmt.ext}`;
 
 	console.log(`${srcPath} -> ${distPath}`);

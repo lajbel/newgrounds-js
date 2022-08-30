@@ -6,7 +6,7 @@ export function unlockMedal(id) {
     if(medal.unlocked) return;  
     medal.unlocked = true;
 
-    this.call('Medal.unlock', {id:medal.id});
+    this.call('Medal.unlock', { id: medal.id });
 };
 
 export function getMedalText(medal) {

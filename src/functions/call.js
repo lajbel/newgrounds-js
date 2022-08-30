@@ -11,7 +11,7 @@ export function encryptCall(call) {
     return call;
 };
 
-export function call(component, parameters=0, async=1) {
+export function call(component, parameters = false, async = true) {
     const call = this.encryptCall({component, parameters});
         
     const input =  {
@@ -26,7 +26,7 @@ export function call(component, parameters=0, async=1) {
     const xmlHttp = new XMLHttpRequest();
     const url = 'https://newgrounds.io/gateway_v3.php';
 
-    xmlHttp.open('POST', url, this.debug? 0 : async);
+    xmlHttp.open('POST', url, this.debug ? false : async);
     xmlHttp.send(formData);
         
     if (xmlHttp.responseText) {
