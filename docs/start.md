@@ -1,12 +1,9 @@
 ---
 layout: default
-title: Starting on
+title: Instalation
 nav_order: 2
 ---
-
-# Starting on
-
-## Installation
+# Installation
 ### Node.JS
 
 ```
@@ -20,13 +17,10 @@ ngio.connect("55143:RrL4bDjH", "6kB/g/l9dLIdHFXLn4T69g==")")
 ```
 
 ### CDN
-
-<div class="code-example" markdown="1">
 ```js
 import { newgrounds } from "https://cdn.jsdelivr.net/npm/newgrounds.js@3.1.0/dist/newgrounds.mjs";
 ngio.connect("55143:RrL4bDjH", "6kB/g/l9dLIdHFXLn4T69g==");
 ```
-</div>
 
 ### HTML Tag
 
