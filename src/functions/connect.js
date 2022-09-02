@@ -15,13 +15,13 @@ export function connect(appID, cipher = 0, config = {}) {
 
     this.points = [5, 10, 25, 50, 100];
     this.displayMedalQueue = [];
-            
+
     const url = new URL(window.location.href);
     this.sessionID = url.searchParams.get('ngio_session_id') ?? 0;
-    
+
     const scoreboardResult = this.call('ScoreBoard.getBoards', 0, 0);
     this.scoreboards = scoreboardResult?.result?.data?.scoreboards ?? [];
-        
+
     const resultMedals = this.call('Medal.getList', 0, 0);
     this.medals = resultMedals?.result?.data?.medals ?? [];
 
