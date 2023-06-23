@@ -1,6 +1,6 @@
 import { Newgrounds } from "./types";
 
-export function encryptCall(app: Newgrounds, call: any) {
+export function encryptCall<T extends { secure?: string; parameters?: any }>(app: Newgrounds, call: T): T {
     if (!app.encryptionKey) return call;
 
     const aesKey = app.CryptoJS.enc.Base64.parse(app);
@@ -17,8 +17,8 @@ export function call(app: Newgrounds, component: string, parameters: any, async:
     const call = encryptCall(app, { component, parameters });
 
     const input = {
-        app_id: this.appID,
-        session_id: this.sessionID,
+        app_id: app.appId,
+        session_id: app.sessionId,
         call,
     };
 
@@ -36,5 +36,7 @@ export function call(app: Newgrounds, component: string, parameters: any, async:
 
         this.responseText = xmlHttp.responseText;
         return JSON.parse(xmlHttp.responseText);
+    } else {
+        return null;
     }
 }

@@ -10,8 +10,7 @@
     "module": "./dist/newgrounds.mjs",
     "scripts": {
         "start": "npm run build",
-        "build": "node scripts/build.js",
-        "dts": "npm-dts --force --entry newgrounds.js --output dist/index.d.ts -L debug generate"
+        "build": "node scripts/build.js"
     },
     "files": [
         "dist/",
@@ -32,9 +31,7 @@
     "author": "lajbel <lajbelms@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "@typescript-eslint/parser": "^5.60.0",
         "esbuild": "^0.13.7",
-        "eslint": "^8.43.0",
         "prettier": "^2.8.8",
         "typescript": "^5.1.3"
     }

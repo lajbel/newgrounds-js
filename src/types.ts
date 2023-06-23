@@ -19,6 +19,8 @@ export type Session = {
     user: User;
 };
 
+export type Component = "App" | "CloudSave" | "Event" | "Gateway" | "Loader" | "Medal" | "ScoreBoard";
+
 /**
  * Used to get and validate information associated with your app, including user sessions.
  */
@@ -63,6 +65,10 @@ export type Newgrounds = {
      * Current options.
      */
     options: NewgroundsOpt;
+    /**
+     * Current session id.
+     */
+    sessionId?: string;
     /**
      * Connect with your Newgrounds project.
      */
