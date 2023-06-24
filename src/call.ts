@@ -1,6 +1,6 @@
-import { Newgrounds, ComponentCategory, Component } from "./types";
+import { NewgroundsClient, ComponentCategory, Component, ReturnTypeOfComponentMethod } from "./types";
 
-export function encryptCall<T extends { secure?: string; parameters?: any }>(app: Newgrounds, call: T): T {
+export function encryptCall<T extends { secure?: string; parameters?: any }>(app: NewgroundsClient, call: T): T {
     if (!app.encryptionKey) return call;
 
     const aesKey = app.CryptoJS.enc.Base64.parse(app);
@@ -13,7 +13,13 @@ export function encryptCall<T extends { secure?: string; parameters?: any }>(app
     return call;
 }
 
-export function call<T extends ComponentCategory>(app: Newgrounds, component: T, method: Component<T>, parameters: any, async: boolean = false) {
+export function call<T extends ComponentCategory, T2 extends Component<T>>(
+    app: NewgroundsClient,
+    component: T,
+    method: T2,
+    parameters?: any,
+    async?: boolean
+): ReturnTypeOfComponentMethod<T, T2> {
     const call = encryptCall(app, { component: `${component}.${method}`, parameters });
 
     const input = {
@@ -28,15 +34,15 @@ export function call<T extends ComponentCategory>(app: Newgrounds, component: T,
     const xmlHttp = new XMLHttpRequest();
     const url = "https://newgrounds.io/gateway_v3.php";
 
-    xmlHttp.open("POST", url, app.options.debug ? false : async);
+    xmlHttp.open("POST", url, app.options.debug ?? false);
     xmlHttp.send(formData);
 
     if (xmlHttp.responseText) {
         if (app.options.debug) console.log(xmlHttp.responseText);
 
         this.responseText = xmlHttp.responseText;
-        return JSON.parse(xmlHttp.responseText);
+        return JSON.parse(xmlHttp.responseText).result?.data;
     } else {
-        return null;
+        return null as ReturnTypeOfComponentMethod<T, Component<T>>;
     }
 }

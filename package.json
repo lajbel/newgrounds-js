@@ -1,13 +1,14 @@
 {
     "name": "newgrounds.js",
-    "version": "3.1.0",
+    "version": "4.0.0",
     "description": "Your game with newgrounds.io in one import",
-    "main": "./dist/newgrounds.cjs",
-    "types": "./dist/index.d.ts",
     "homepage": "https://newgrounds.io/",
     "repository": "github:lajbel/newgrounds-js",
+    "main": "./dist/newgrounds.cjs",
     "browser": "./dist/newgrounds.js",
     "module": "./dist/newgrounds.mjs",
+    "types": "./dist/index.d.ts",
+    "type": "module",
     "scripts": {
         "start": "npm run build",
         "build": "node scripts/build.js"

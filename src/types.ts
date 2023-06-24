@@ -24,7 +24,7 @@ type Unionize<T extends object> = {
 }[keyof T];
 
 export type ComponentsCategories = {
-    App: App;
+    App: AppComponent;
     CloudSave: CloudSave;
     Event: Event;
     Gateway: Gateway;
@@ -35,6 +35,15 @@ export type ComponentsCategories = {
 
 export type ComponentCategory = Unionize<ComponentsCategories>;
 export type Component<T> = T extends ComponentCategory ? Unionize<ComponentsCategories[T]> : never;
+export type ReturnTypeOfComponentMethod<T extends ComponentCategory, M extends Component<T>> = T extends ComponentCategory
+    ? M extends Component<T>
+        ? ComponentsCategories[T][M] extends (...args: any[]) => any
+            ? ReturnType<ComponentsCategories[T][M]>
+            : never
+        : never
+    : never;
+
+type A = ReturnTypeOfComponentMethod<"App", "getCurrentVersion">;
 // export type ComponentAndMethod<T> = T extends `${infer C}.${infer M}` ? C extends Component ? M extends ComponentMethods<C> ? T : never : never : never;
 
 /**
@@ -42,7 +51,7 @@ export type Component<T> = T extends ComponentCategory ? Unionize<ComponentsCate
  *
  * https://www.newgrounds.io/help/components/#app
  */
-export type App = {
+export declare class AppComponent {
     /**
      * Checks the validity of a session id and returns the results in a Session object.
      *
@@ -60,7 +69,10 @@ export type App = {
      *
      * http://www.newgrounds.io/help/components/#app-getcurrenversion
      */
-    getCurrentVersion(version: string): Promise<string | boolean>;
+    getCurrentVersion(): Promise<{
+        client_deprecated: boolean;
+        current_version: string;
+    }>;
     /**
      * Checks a client-side host domain against domains defined in your "Game Protection" settings.
      *
@@ -79,14 +91,14 @@ export type App = {
      * http://www.newgrounds.io/help/components/#app-startsession
      */
     startSession(force: boolean): Promise<Session>;
-};
+}
 
 /**
  * Handles loading and saving of game states.
  *
  * https://www.newgrounds.io/help/components/#cloudsave
  */
-export type CloudSave = {
+export declare class CloudSave {
     /**
      * Deletes all data from a save slot.
      *
@@ -105,19 +117,19 @@ export type CloudSave = {
      * https://www.newgrounds.io/help/components/#cloudsave-listslots
      */
     listSlots(): Promise<{}>;
-};
+}
 
 /**
  * Handles logging of custom events.
  *
  * https://www.newgrounds.io/help/components/#event
  */
-export type Event = {};
+export declare class Event {}
 
 /**
  * Provides information about the gateway server.
  */
-export type Gateway = {};
+export declare class Gateway {}
 
 /**
  * This class handles loading various URLs and tracking referral stats.
@@ -126,24 +138,32 @@ export type Gateway = {};
  *
  * https://www.newgrounds.io/help/components/#loader
  */
-export type Loader = {};
+export declare class Loader {}
 
 /**
  * Handles loading and unlocking of medals.
  *
  * https://www.newgrounds.io/help/components/#medal
  */
-export type Medal = {};
+export declare class Medal {}
 
 /**
  * Handles loading and posting of high scores and scoreboards.
  *
  * https://www.newgrounds.io/help/components/#scoreboard
  */
-export type ScoreBoard = {};
+export declare class ScoreBoard {}
 
-export type Newgrounds = {
+export type NewgroundsOpt = {
+    debug?: boolean;
+};
+
+export declare class NewgroundsClient {
     CryptoJS: any;
+    /**
+     * App component.
+     */
+    App: AppComponent;
     /**
      * Current app id.
      */
@@ -163,9 +183,11 @@ export type Newgrounds = {
     /**
      * Connect with your Newgrounds project.
      */
+    constructor(appId?: string, encryptionKey?: string, opt?: NewgroundsOpt);
+    /**
+     * Connect with your Newgrounds project.
+     */
     connect(appId: string, encryptionKey: string, opt: NewgroundsOpt): void;
-};
+}
 
-export type NewgroundsOpt = {
-    debug?: boolean;
-};
+export default NewgroundsClient;
