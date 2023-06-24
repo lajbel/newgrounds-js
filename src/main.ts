@@ -1,6 +1,12 @@
 import { App, Session } from "./types";
 
-class NGApp implements App {
+export class AppComponent implements App {
+    logView(host: string): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
+    startSession(force: boolean): Promise<Session> {
+        throw new Error("Method not implemented.");
+    }
     checkSession(): Promise<Session> {
         throw new Error("Method not implemented.");
     }

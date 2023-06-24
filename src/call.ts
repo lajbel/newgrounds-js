@@ -1,4 +1,4 @@
-import { Newgrounds } from "./types";
+import { Newgrounds, ComponentCategory, Component } from "./types";
 
 export function encryptCall<T extends { secure?: string; parameters?: any }>(app: Newgrounds, call: T): T {
     if (!app.encryptionKey) return call;
@@ -13,8 +13,8 @@ export function encryptCall<T extends { secure?: string; parameters?: any }>(app
     return call;
 }
 
-export function call(app: Newgrounds, component: string, parameters: any, async: boolean = false) {
-    const call = encryptCall(app, { component, parameters });
+export function call<T extends ComponentCategory>(app: Newgrounds, component: T, method: Component<T>, parameters: any, async: boolean = false) {
+    const call = encryptCall(app, { component: `${component}.${method}`, parameters });
 
     const input = {
         app_id: app.appId,
