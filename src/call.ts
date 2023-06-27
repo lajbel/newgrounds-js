@@ -3,10 +3,10 @@ import { NewgroundsClient, ComponentCategory, Component, ReturnTypeOfComponentMe
 export function encryptCall<T extends { secure?: string; parameters?: any }>(app: NewgroundsClient, call: T): T {
     if (!app.encryptionKey) return call;
 
-    const aesKey = app.CryptoJS.enc.Base64.parse(app);
-    const iv = app.CryptoJS.lib.WordArray.random(16);
-    const encrypted = app.CryptoJS.AES.encrypt(JSON.stringify(call), aesKey, { iv });
-    const secure = app.CryptoJS.enc.Base64.stringify(iv.concat(encrypted.ciphertext));
+    const aesKey = CryptoJS.enc.Base64.parse(app.encryptionKey);
+    const iv = CryptoJS.lib.WordArray.random(16);
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(call), aesKey, { iv });
+    const secure = CryptoJS.enc.Base64.stringify(iv.concat(encrypted.ciphertext));
 
     call.secure = secure;
     call.parameters = null;
@@ -38,7 +38,7 @@ export function call<T extends ComponentCategory, T2 extends Component<T>>(
     xmlHttp.send(formData);
 
     if (xmlHttp.responseText) {
-        if (app.options.debug) console.log(xmlHttp.responseText);
+        console.log(xmlHttp.responseText);
 
         this.responseText = xmlHttp.responseText;
         return JSON.parse(xmlHttp.responseText).result?.data;

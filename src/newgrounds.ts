@@ -1,6 +1,5 @@
 import type { NewgroundsOpt } from "./types";
 import { AppComponent } from "./components";
-import { setCrypto } from "./crypto";
 
 export class NewgroundsClient {
     appId: string;
@@ -22,8 +21,6 @@ export class NewgroundsClient {
         this.appId = appId;
         this.encryptionKey = encryptionKey;
         this.options = opt;
-
-        setCrypto(this);
 
         const url = new URL(window.location.href);
         this.sessionId = url.searchParams.get("ngio_session_id") ?? undefined;

@@ -31,6 +31,7 @@ const config = {
         ".mp3": "binary",
     },
     entryPoints: [srcPath],
+    inject: [`lib/aes.js`],
 };
 
 formats.forEach((fmt) => {
