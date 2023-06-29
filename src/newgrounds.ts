@@ -2,11 +2,15 @@ import type { NewgroundsOpt } from "./types";
 import { AppComponent } from "./components";
 
 export class NewgroundsClient {
+    /** Current app id. */
     appId: string;
+    /** Current encryption key. */
     encryptionKey: string;
+    /** Current options. */
     options: any;
+    /** Current session id. */
     sessionId?: string;
-    CryptoJS: any;
+    /** App component. */
     App: AppComponent;
 
     constructor(appId?: string, encryptionKey?: string, opt?: any) {
@@ -17,6 +21,7 @@ export class NewgroundsClient {
         this.App = new AppComponent(this);
     }
 
+    /** Connect with your Newgrounds project. */
     connect(appId: string, encryptionKey: string, opt: NewgroundsOpt): void {
         this.appId = appId;
         this.encryptionKey = encryptionKey;

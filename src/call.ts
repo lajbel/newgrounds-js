@@ -1,7 +1,12 @@
 import { NewgroundsClient, ComponentCategory, Component, ReturnTypeOfComponentMethod } from "./types";
+declare const CryptoJS: any;
 
 export function encryptCall<T extends { secure?: string; parameters?: any }>(app: NewgroundsClient, call: T): T {
+    console.log("aaa");
+
     if (!app.encryptionKey) return call;
+
+    console.log(CryptoJS);
 
     const aesKey = CryptoJS.enc.Base64.parse(app.encryptionKey);
     const iv = CryptoJS.lib.WordArray.random(16);
@@ -40,7 +45,7 @@ export function call<T extends ComponentCategory, T2 extends Component<T>>(
     if (xmlHttp.responseText) {
         console.log(xmlHttp.responseText);
 
-        this.responseText = xmlHttp.responseText;
+        // this.responseText = xmlHttp.responseText;
         return JSON.parse(xmlHttp.responseText).result?.data;
     } else {
         return null as ReturnTypeOfComponentMethod<T, Component<T>>;

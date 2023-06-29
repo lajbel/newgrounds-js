@@ -1,3 +1,8 @@
+import { NewgroundsClient } from "./newgrounds";
+import { AppComponent } from "./components";
+export { NewgroundsClient } from "./newgrounds";
+export { AppComponent } from "./components";
+
 export type User = {
     icons: UserIcons;
     id: number;
@@ -45,53 +50,6 @@ export type ReturnTypeOfComponentMethod<T extends ComponentCategory, M extends C
 
 type A = ReturnTypeOfComponentMethod<"App", "getCurrentVersion">;
 // export type ComponentAndMethod<T> = T extends `${infer C}.${infer M}` ? C extends Component ? M extends ComponentMethods<C> ? T : never : never : never;
-
-/**
- * Used to get and validate information associated with your app, including user sessions.
- *
- * https://www.newgrounds.io/help/components/#app
- */
-export declare class AppComponent {
-    /**
-     * Checks the validity of a session id and returns the results in a Session object.
-     *
-     * http://www.newgrounds.io/help/components/#app-checksession
-     */
-    checkSession(): Promise<Session>;
-    /**
-     * Ends the current session, if any.
-     *
-     * http://www.newgrounds.io/help/components/#app-endsession
-     */
-    endSession(): Promise<void>;
-    /**
-     * Gets the version number of the app as defined in your "Version Control" settings.
-     *
-     * http://www.newgrounds.io/help/components/#app-getcurrenversion
-     */
-    getCurrentVersion(): Promise<{
-        client_deprecated: boolean;
-        current_version: string;
-    }>;
-    /**
-     * Checks a client-side host domain against domains defined in your "Game Protection" settings.
-     *
-     * http://www.newgrounds.io/help/components/#app-gethostlicense
-     */
-    getHostLicense(): Promise<boolean>;
-    /**
-     * Increments "Total Views" statistic.
-     *
-     * http://www.newgrounds.io/help/components/#app-logview
-     */
-    logView(host: string): Promise<void>;
-    /**
-     * Starts a new session for the application.
-     *
-     * http://www.newgrounds.io/help/components/#app-startsession
-     */
-    startSession(force: boolean): Promise<Session>;
-}
 
 /**
  * Handles loading and saving of game states.
@@ -157,37 +115,5 @@ export declare class ScoreBoard {}
 export type NewgroundsOpt = {
     debug?: boolean;
 };
-
-export declare class NewgroundsClient {
-    CryptoJS: any;
-    /**
-     * App component.
-     */
-    App: AppComponent;
-    /**
-     * Current app id.
-     */
-    appId: string;
-    /**
-     * Current encryption key.
-     */
-    encryptionKey: string;
-    /**
-     * Current options.
-     */
-    options: NewgroundsOpt;
-    /**
-     * Current session id.
-     */
-    sessionId?: string;
-    /**
-     * Connect with your Newgrounds project.
-     */
-    constructor(appId?: string, encryptionKey?: string, opt?: NewgroundsOpt);
-    /**
-     * Connect with your Newgrounds project.
-     */
-    connect(appId: string, encryptionKey: string, opt: NewgroundsOpt): void;
-}
 
 export default NewgroundsClient;

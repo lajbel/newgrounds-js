@@ -7,11 +7,12 @@
     "main": "./dist/newgrounds.cjs",
     "browser": "./dist/newgrounds.js",
     "module": "./dist/newgrounds.mjs",
-    "types": "./dist/index.d.ts",
+    "types": "./dist/types.d.ts",
     "type": "module",
     "scripts": {
         "start": "npm run build",
-        "build": "node scripts/build.js"
+        "build": "node scripts/build.js",
+        "dts": "tsc"
     },
     "files": [
         "dist/",

@@ -32,6 +32,7 @@ const config = {
     },
     entryPoints: [srcPath],
     inject: [`lib/aes.js`],
+    external: ["./newgrounds"],
 };
 
 formats.forEach((fmt) => {
@@ -42,17 +43,3 @@ formats.forEach((fmt) => {
         })
         .then(() => console.log(`-> ${fmt.outfile}`));
 });
-
-// Create d.ts file
-function buildTypes() {
-    let dts = fs.readFileSync(`${srcDir}/types.ts`, "utf-8");
-
-    function writeFile(path, content) {
-        fs.writeFileSync(path, content);
-        console.log(`-> ${path}`);
-    }
-
-    writeFile(`${distDir}/index.d.ts`, dts);
-}
-
-buildTypes();
