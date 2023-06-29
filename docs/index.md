@@ -6,8 +6,11 @@ nav_order: 1
 
 # Newgrounds.js
 
-Newgrounds.js it's a API wrapper for Newgrounds.io, to use it with any web game and connect with newgrounds!
+Newgrounds.js it's a API wrapper for Newgrounds.io, to connect your client with Newgrounds.io and use all their functions.
 
-This works with the most popular js game engines, like Kaboom, Phaser, or even Scratch!
+**Features**
 
-**Powered By** [<img width=180 align="center" src="https://www.newgrounds.io/img/ngio_logo.png"/>](https://newgrounds.io)
+-   Strongly typed all Newgrounds.io objects models with TypeScript
+-   Use classes or functions
+
+[<img width=180 align="center" src="https://www.newgrounds.io/img/ngio_logo.png"/>](https://newgrounds.io)
