@@ -1,45 +1,33 @@
-// This file builds the project
-import esbuild from "esbuild";
-import fs from "fs";
+const esbuild = require("esbuild");
 
-const distDir = "dist";
-const srcDir = "src";
-const srcPath = "src/main.ts";
-
-// Build all formats
 const formats = [
-    {
-        format: "iife",
-        globalName: "newgrounds",
-        outfile: `${distDir}/newgrounds.js`,
-        footer: {
-            js: "window.NewgroundsClient = newgrounds.default",
-        },
-    },
-    { format: "cjs", outfile: `${distDir}/newgrounds.cjs` },
-    { format: "esm", outfile: `${distDir}/newgrounds.mjs` },
+    { format: "iife", ext: "js",  },
+	{ format: "cjs",  ext: "cjs", },
+	{ format: "esm",  ext: "mjs", },
 ];
 
-const config = {
-    bundle: true,
-    sourcemap: true,
-    minify: true,
-    keepNames: true,
-    loader: {
-        ".png": "dataurl",
-        ".glsl": "text",
-        ".mp3": "binary",
-    },
-    entryPoints: [srcPath],
-    inject: [`lib/aes.js`],
-    external: ["./newgrounds"],
-};
+let define = {};
 
 formats.forEach((fmt) => {
-    esbuild
-        .build({
-            ...config,
-            ...fmt,
-        })
-        .then(() => console.log(`-> ${fmt.outfile}`));
+	const srcPath = "src/newgrounds.js";
+	const distPath = `dist/newgrounds.${fmt.ext}`;
+
+	console.log(`${srcPath} -> ${distPath}`);
+
+	if(fmt.ext === "cjs") {
+		define["window"] = "global";
+	}
+
+	esbuild.buildSync({
+		bundle: true,
+		sourcemap: false,
+		target: "es6",
+		minify: true,
+		keepNames: true,
+		entryPoints: [ srcPath ],
+		globalName: "newgrounds",
+		format: fmt.format,
+		outfile: distPath,
+		define,
+	});
 });

@@ -1,18 +1,17 @@
 {
     "name": "newgrounds.js",
-    "version": "4.0.0",
+    "version": "3.1.0",
     "description": "Your game with newgrounds.io in one import",
+    "main": "./dist/newgrounds.cjs",
+    "types": "./dist/index.d.ts",
     "homepage": "https://newgrounds.io/",
     "repository": "github:lajbel/newgrounds-js",
-    "main": "./dist/newgrounds.cjs",
     "browser": "./dist/newgrounds.js",
     "module": "./dist/newgrounds.mjs",
-    "types": "./dist/types.d.ts",
-    "type": "module",
     "scripts": {
         "start": "npm run build",
         "build": "node scripts/build.js",
-        "dts": "tsc"
+        "dts": "npm-dts --force --entry newgrounds.js --output dist/index.d.ts -L debug generate"
     },
     "files": [
         "dist/",
@@ -33,8 +32,8 @@
     "author": "lajbel <lajbelms@gmail.com>",
     "license": "MIT",
     "devDependencies": {
+        "dts-generator": "^3.0.0",
         "esbuild": "^0.13.7",
-        "prettier": "^2.8.8",
-        "typescript": "^5.1.3"
+        "typescipt": "^1.0.0"
     }
 }
