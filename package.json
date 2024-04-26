@@ -1,14 +1,25 @@
 {
   "name": "newgrounds.js",
-  "version": "3.1.0",
-  "description": "Your game with newgrounds.io in one import",
+  "version": "4.0.0",
+  "description": "The definitive Newgrounds.io library for Node.js and the browser.",
+  "keywords": [
+    "newgrounds",
+    "newgrounds.io",
+    "phaserjs",
+    "phaser",
+    "kaboom.js",
+    "kaboom"
+  ],
+  "author": "lajbel <lajbelms@gmail.com>",
+  "license": "MIT",
+
+  "type": "module",
   "main": "./dist/newgrounds.cjs",
   "types": "./dist/index.d.ts",
-  "homepage": "https://newgrounds.io/",
+  "homepage": "https://newgroundsjs.lajbel.com/",
   "repository": "github:lajbel/newgrounds-js",
   "browser": "./dist/newgrounds.js",
   "module": "./dist/newgrounds.mjs",
-  "type": "module",
   "scripts": {
     "start": "npm run build",
     "build": "node --watch-path ./src scripts/build.js",
@@ -22,16 +33,6 @@
     "import": "./dist/newgrounds.mjs",
     "require": "./dist/newgrounds.cjs"
   },
-  "keywords": [
-    "newgrounds",
-    "api",
-    "library",
-    "ngio",
-    "indie",
-    "game"
-  ],
-  "author": "lajbel <lajbelms@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^20.12.7",
