@@ -1,6 +1,6 @@
 {
   "name": "newgrounds.js",
-  "version": "4.0.0",
+  "version": "4.0.0-beta.1",
   "description": "The definitive Newgrounds.io library for Node.js and the browser.",
   "keywords": [
     "newgrounds",
