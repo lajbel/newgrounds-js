@@ -1,10 +1,11 @@
-import { connect } from "./functions/connect.js";
-import { unlockMedal, getMedalText } from "./functions/medal";
-import { postScore, getScores } from "./functions/scoreboard";
-import { update, render } from "./functions/render";
-import { getUsername, getVersion, isSupporter } from "./functions/util";
-import { encryptCall, call } from "./functions/call";
+import { NewgroundsClient } from "./client";
+import { call, encryptCall } from "./functions/call";
 import { getCloudData, setCloudData } from "./functions/cloud";
+import { connect, login } from "./functions/connect.js";
+import { getMedalText, unlockMedal } from "./functions/medal";
+import { render, update } from "./functions/render";
+import { getScores, postScore } from "./functions/scoreboard";
+import { getUsername, getVersion, isSupporter } from "./functions/util";
 
 /**  newgrounds.js object */
 const newgrounds = {
@@ -22,22 +23,24 @@ const newgrounds = {
     encryptCall,
     getCloudData,
     setCloudData,
+    login,
+    NewgroundsClient,
 };
 
 // windows functions to use easy with scratch
-window.Connect = connect;
-window.UnlockMedal = unlockMedal;
-window.GetMedalText = getMedalText;
-window.GetScores = getScores;
-window.PostScore = postScore;
-window.update = update;
-window.render = render;
-window.GetUsername = getUsername;
-window.GetVersion = getVersion;
-window.IsSupporter = isSupporter;
-window.GetCloudData = getCloudData
-window.SetCloudData = setCloudData;
-window.call = call;
-window.encryptCall = encryptCall;
+globalThis.Connect = connect;
+globalThis.UnlockMedal = unlockMedal;
+globalThis.GetMedalText = getMedalText;
+globalThis.GetScores = getScores;
+globalThis.PostScore = postScore;
+globalThis.update = update;
+globalThis.render = render;
+globalThis.GetUsername = getUsername;
+globalThis.GetVersion = getVersion;
+globalThis.IsSupporter = isSupporter;
+globalThis.GetCloudData = getCloudData;
+globalThis.SetCloudData = setCloudData;
+globalThis.call = call;
+globalThis.encryptCall = encryptCall;
 
-module.exports = newgrounds;
+export default newgrounds;

@@ -5,9 +5,10 @@
 [**Docs**](https://github.com/lajbel/newgrounds-js/wiki)
 
 ## Features 🎁
-* Functions with everything your game needs
-* Ability to call all components if you want
-* Use the npm package or use the ES6 module, or a tag script!
+
+- Functions with everything your game needs
+- Ability to call all components if you want
+- Use the npm package or use the ES6 module, or a tag script!
 
 ## Example
 

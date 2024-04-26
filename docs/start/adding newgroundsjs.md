@@ -23,5 +23,5 @@ So, this is my main code, I will load my library and Newgrounds.js using instala
 ```
 
 ## Connect with your ng project
-todo
 
+todo
