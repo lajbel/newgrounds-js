@@ -5,32 +5,26 @@ import { unlockMedal } from "./helpers/medal.js";
 import { getScores, postScore } from "./helpers/scoreboard.js";
 import { getUsername, getVersion, isSupporter } from "./helpers/util.js";
 
-/**  newgrounds.js object */
 const newgrounds = {
     connect,
+    login,
     unlockMedal,
     getScores,
     postScore,
-
     getUsername,
     getVersion,
     isSupporter,
     getCloudData,
     setCloudData,
-    login,
     NewgroundsClient,
 };
 
-// windows functions to use easy with scratch
-// TODO: Automate
-globalThis.Connect = connect;
-globalThis.UnlockMedal = unlockMedal;
-globalThis.GetScores = getScores;
-globalThis.PostScore = postScore;
-globalThis.GetUsername = getUsername;
-globalThis.GetVersion = getVersion;
-globalThis.IsSupporter = isSupporter;
-globalThis.GetCloudData = getCloudData;
-globalThis.SetCloudData = setCloudData;
+function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+for (const key in newgrounds) {
+    globalThis[capitalizeFirstLetter(key)] = newgrounds[key];
+}
 
 export default newgrounds;

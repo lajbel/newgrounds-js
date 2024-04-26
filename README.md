@@ -1,32 +1,44 @@
-![ngjsbanner](banner.png)
+![ngjsbanner](assets/banner.png)
 
-**Newgrounds.js** is the first good and complete library for use [Newgrounds.io](https://newgrounds.io) functions and utilities for your game. The best? You can use with any framework or game engine of Javascript or web tecnologies, like [Kaboom](https://kaboomjs.com) or [Phaser](https://phaser.io)
-
-[**Docs**](https://github.com/lajbel/newgrounds-js/wiki)
+Newgrounds.js is the definitive library for connecting your game to the Newgrounds.io API.
 
 ## Features 🎁
 
-- Functions with everything your game needs
-- Ability to call all components if you want
-- Use the npm package or use the ES6 module, or a tag script!
+- 🚀 Intuitive usage
+- 📖 Full documented with guides and examples.
+- 🌟 You can use the wrapper functions `unlockMedal` or make your own requests with `NewgroundsClient.call`
+- 📦 Async/Await by default
+- 📜 Full Typescript support
+- 🍜 ESM and CommonJS support
 
-## Example
+## Installation 📦
 
-```js
-const newgrounds = require("newgrounds.js");
+You can install the package using your favorite node package manager.
 
-newgrounds.connect("533327:b6GaR8Eb", "ivuwzsfewkqñwacRQ==");
-
-newgrounds.unlockMedal(129521);
-newgrounds.postScore(12052012, 50);
+```bash
+npm i newgrounds.js
 ```
 
-## Install
+Also can use the CDN to include the library in your project.
 
-npm: `npm i newgrounds.js` <br>
-cdn: [jsdelivr](https://cdn.jsdelivr.net/npm/newgrounds.js@latest/dist/newgrounds.mjs) or [unpkg](https://unpkg.com/newgrounds.js@latest/dist/newgrounds.mjs)
+```html
+<script src="https://cdn.jsdelivr.net/npm/newgrounds.js/dist/newgrounds.js"></script>
+```
 
-## Credits
+## Example 📝
 
-[Newgrounds.io](https://newgrounds.io) <br>
-[Javascript Wrapper](https://github.com/KilledByAPixel/newgrounds) by [KilledByAPixel](https://github.com/KilledByAPixel)
+```js
+import ng from "newgrounds.js";
+
+// Connect to your project
+ng.connect("533327:b6GaR8Eb", "ivuwzsfewkqñwacRQ==");
+
+// Start using NG.io
+ng.unlockMedal(129521);
+ng.postScore(12052012, 50);
+```
+
+## Credits 🙏
+
+- [Newgrounds.io](https://newgrounds.io) API
+- [Javascript Wrapper](https://github.com/KilledByAPixel/newgrounds) by [KilledByAPixel](https://github.com/KilledByAPixel), used as the base for this library.
