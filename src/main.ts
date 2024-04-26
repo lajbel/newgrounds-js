@@ -28,4 +28,18 @@ for (const key in newgrounds) {
     globalThis[capitalizeFirstLetter(key)] = newgrounds[key];
 }
 
+export {
+    connect,
+    getCloudData,
+    getScores,
+    getUsername,
+    getVersion,
+    isSupporter,
+    login,
+    NewgroundsClient,
+    postScore,
+    setCloudData,
+    unlockMedal,
+};
+
 export default newgrounds;

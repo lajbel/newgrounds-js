@@ -1,5 +1,5 @@
 import { NewgroundsClient } from "../client";
-import { setClient } from "../helpers";
+import { getClient, setClient } from "../helpers";
 import { User } from "../types/objectModels";
 
 export function connect(appID: string, encKey: string) {
@@ -10,8 +10,8 @@ export function connect(appID: string, encKey: string) {
     return client;
 }
 
-export function login() {
-    const checkedSession = this.call("App.checkSession");
+export const login = async () => {
+    const checkedSession = await getClient().call("App.checkSession");
 
     return new Promise<User>((resolve, reject) => {
         if (checkedSession?.result?.data?.session?.user) {
@@ -21,8 +21,8 @@ export function login() {
 
             globalThis.open(passportUrl, "Newgrounds Passport", "height=600,width=800");
 
-            const checkInterval = setInterval(() => {
-                const checkedSession = this.call("App.checkSession");
+            const checkInterval = setInterval(async () => {
+                const checkedSession = await getClient().call("App.checkSession");
 
                 if (checkedSession?.result?.data?.session?.user) {
                     console.log("User logged in!");
@@ -32,4 +32,4 @@ export function login() {
             }, 6000);
         }
     });
-}
+};

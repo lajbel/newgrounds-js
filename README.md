@@ -33,6 +33,9 @@ import ng from "newgrounds.js";
 // Connect to your project
 await ng.connect("533327:b6GaR8Eb", "ivuwzsfewkqñwacRQ==");
 
+// Request user login
+await ng.login();
+
 // Start using NG.io
 await ng.unlockMedal(129521);
 await ng.postScore(12052012, 50);

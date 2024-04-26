@@ -1,4 +1,4 @@
-import type { NewgroundsClient } from "./client";
+import { NewgroundsClient } from "./client";
 import { ScoreBoardGetScoresParams } from "./types/components";
 import { SaveSlot, Score, User } from "./types/objectModels";
 
@@ -84,4 +84,16 @@ export interface NewgroundsJS {
     NewgroundsClient: typeof NewgroundsClient;
 }
 
-export default NewgroundsJS;
+export declare const ng: NewgroundsJS;
+export declare const connect: NewgroundsJS["connect"];
+export declare const login: NewgroundsJS["login"];
+export declare const unlockMedal: NewgroundsJS["unlockMedal"];
+export declare const getScores: NewgroundsJS["getScores"];
+export declare const postScore: NewgroundsJS["postScore"];
+export declare const getUsername: NewgroundsJS["getUsername"];
+export declare const getVersion: NewgroundsJS["getVersion"];
+export declare const isSupporter: NewgroundsJS["isSupporter"];
+export declare const getCloudData: NewgroundsJS["getCloudData"];
+export declare const setCloudData: NewgroundsJS["setCloudData"];
+
+export default ng;

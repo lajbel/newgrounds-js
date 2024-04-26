@@ -12,26 +12,43 @@
   ],
   "author": "lajbel <lajbelms@gmail.com>",
   "license": "MIT",
-  "type": "module",
-  "main": "./dist/newgrounds.cjs",
-  "types": "./dist/index.d.ts",
   "homepage": "https://newgroundsjs.lajbel.com/",
   "repository": "github:lajbel/newgrounds-js",
-  "browser": "./dist/newgrounds.js",
+
+  "type": "module",
+  "main": "./dist/newgrounds.cjs",
   "module": "./dist/newgrounds.mjs",
+  "types": "./dist/newgrounds.d.ts",
   "scripts": {
     "start": "npm run build",
     "build": "node scripts/buildAll.js",
     "dev": "node --watch-path ./src scripts/buildAll.js",
-    "dts": "dts-bundle-generator -o dist/first.d.ts src/types.ts"
+    "dts": "dts-bundle-generator -o dist/first.d.ts src/types.ts",
+    "demo": "esbuild --bundle demo/main.ts --outfile=demo/main.js --servedir=demo --sourcemap"
   },
   "files": [
     "dist/",
     "source/"
   ],
   "exports": {
-    "import": "./dist/newgrounds.mjs",
-    "require": "./dist/newgrounds.cjs"
+    ".": {
+      "import": {
+        "types": "./dist/newgrounds.d.ts",
+        "default": "./dist/newgrounds.mjs"
+      },
+      "require": {
+        "types": "./dist/newgrounds.d.ts",
+        "default": "./dist/newgrounds.cjs"
+      }
+    },
+    "./global": "./dist/global.js"
+  },
+  "typesVersions": {
+    "*": {
+      "global": [
+        "./dist/global.d.ts"
+      ]
+    }
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
