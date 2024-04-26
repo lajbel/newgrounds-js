@@ -1,4 +1,4 @@
-![ngjsbanner](assets/banner.png)
+![ngjsbanner](assets/newgrounds.js.png)
 
 Newgrounds.js is the definitive library for connecting your game to the Newgrounds.io API.
 
