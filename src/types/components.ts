@@ -12,7 +12,7 @@ export type AppStartSessionParams = {
 
 export type AppGetCurrentVersionData = {
     client_deprecated: boolean;
-    client_version: string;
+    current_version: string;
 };
 
 export type AppGetCurrentVersionParams = {
@@ -179,14 +179,14 @@ export type ScoreBoardGetScoresData = {
 };
 
 export type ScoreBoardGetScoresParams = {
-    app_id: string;
+    app_id?: string;
     id: number;
     limit?: number;
     period?: string;
     skip?: number;
     social?: boolean;
     tag?: string;
-    user?: any;
+    user?: string | number;
 };
 
 export type ScoreBoardPostScoreData = {

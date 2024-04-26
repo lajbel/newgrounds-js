@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 import type { NGIOComponent, NGIOData, NGIOParams } from "./types/components";
-import { Response } from "./types/objectModels";
+import type { Response } from "./types/objectModels";
 
 export class NewgroundsClient {
     private _appID: string;
