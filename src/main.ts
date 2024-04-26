@@ -4,8 +4,9 @@ import { connect, login } from "./helpers/connect.js";
 import { unlockMedal } from "./helpers/medal.js";
 import { getScores, postScore } from "./helpers/scoreboard.js";
 import { getUsername, getVersion, isSupporter } from "./helpers/util.js";
+import { NewgroundsJS } from "./types.js";
 
-const newgrounds = {
+const newgrounds: NewgroundsJS = {
     connect,
     login,
     unlockMedal,

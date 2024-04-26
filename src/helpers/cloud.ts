@@ -10,7 +10,7 @@ export const getCloudData = async (id: number) => {
     const slot = await getClient().call("CloudSave.loadSlot", { id });
     const slotUrl = slot.result.data.slot.url;
 
-    if (!slotUrl) return {};
+    if (!slotUrl) return "";
 
     try {
         const slotData = await fetch(slotUrl, {

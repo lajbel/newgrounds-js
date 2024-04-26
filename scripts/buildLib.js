@@ -6,10 +6,10 @@ const distDir = "dist";
 const fmts = [
     {
         format: "iife",
-        globalName: "newgrounds",
+        globalName: "ng",
         outfile: `${distDir}/newgrounds.js`,
         footer: {
-            js: "globalThis.newgrounds = newgrounds.default",
+            js: "window.ng = ng.default",
         },
     },
     { format: "cjs", outfile: `${distDir}/newgrounds.cjs` },

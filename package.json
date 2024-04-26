@@ -12,7 +12,6 @@
   ],
   "author": "lajbel <lajbelms@gmail.com>",
   "license": "MIT",
-
   "type": "module",
   "main": "./dist/newgrounds.cjs",
   "types": "./dist/index.d.ts",
@@ -22,8 +21,9 @@
   "module": "./dist/newgrounds.mjs",
   "scripts": {
     "start": "npm run build",
-    "build": "node --watch-path ./src scripts/build.js",
-    "dts": "npm-dts --force --entry newgrounds.js --output dist/index.d.ts -L debug generate"
+    "build": "node scripts/buildAll.js",
+    "dev": "node --watch-path ./src scripts/buildAll.js",
+    "dts": "dts-bundle-generator -o dist/first.d.ts src/types.ts"
   },
   "files": [
     "dist/",
@@ -36,13 +36,12 @@
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^20.12.7",
-    "dts-generator": "^3.0.0",
+    "dprint": "^0.45.1",
+    "dts-bundle-generator": "^9.5.1",
     "esbuild": "^0.13.7",
-    "typescipt": "^1.0.0"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@originjs/crypto-js-wasm": "^1.1.0",
-    "crypto-js": "^4.2.0",
-    "dprint": "^0.45.1"
+    "crypto-js": "^4.2.0"
   }
 }

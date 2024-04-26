@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import ts from "typescript";
+import { capitalizeFirstLetter } from "./util/capitalizeFirstLetter.js";
 
 const distDir = "dist";
 
@@ -102,19 +103,19 @@ export async function genDTS() {
     // check if global defs are being generated
     let globalGenerated = false;
 
-    // generate global decls for KaboomCtx members
+    // generate global decls for NewgroundsJS members
     let globalDts = "";
-    let globalDtsImport = "import { KiboomPlugin } from \"./kiboom\"\n";
+    let globalDtsImport = "import { NewgroundsJS } from \"./newgrounds\"\n";
 
     globalDts += "declare global {\n";
 
     for (const stmt of stmts) {
-        if (stmt.name === "KiboomPlugin") {
+        if (stmt.name === "NewgroundsJS") {
             if (stmt.kind !== "InterfaceDeclaration") {
-                throw new Error("KiboomPlugin must be an interface.");
+                throw new Error("NewgroundsJS must be an interface.");
             }
             for (const name in stmt.members) {
-                globalDts += `\tconst ${name}: KiboomPlugin["${name}"]\n`;
+                globalDts += `\tconst ${capitalizeFirstLetter(name)}: NewgroundsJS["${name}"]\n`;
             }
             globalGenerated = true;
         }
@@ -126,7 +127,7 @@ export async function genDTS() {
         throw new Error("KaboomCtx not found, failed to generate global defs.");
     }
 
-    writeFile(`${distDir}/kiboom.d.ts`, dts);
+    writeFile(`${distDir}/newgrounds.d.ts`, dts);
     writeFile(`${distDir}/global.d.ts`, globalDtsImport + globalDts);
     writeFile(`${distDir}/global.js`, "");
 }

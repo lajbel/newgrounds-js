@@ -1,5 +1,7 @@
 import { getClient } from "../helpers";
 
 export const unlockMedal = async (id: number) => {
-    getClient.call("Medal.unlock", { id });
+    const medalUnlock = await getClient().call("Medal.unlock", { id });
+
+    return medalUnlock.result.data.medal.unlocked;
 };
