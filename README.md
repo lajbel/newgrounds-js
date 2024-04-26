@@ -31,11 +31,11 @@ Also can use the CDN to include the library in your project.
 import ng from "newgrounds.js";
 
 // Connect to your project
-ng.connect("533327:b6GaR8Eb", "ivuwzsfewkqñwacRQ==");
+await ng.connect("533327:b6GaR8Eb", "ivuwzsfewkqñwacRQ==");
 
 // Start using NG.io
-ng.unlockMedal(129521);
-ng.postScore(12052012, 50);
+await ng.unlockMedal(129521);
+await ng.postScore(12052012, 50);
 ```
 
 ## Credits 🙏
