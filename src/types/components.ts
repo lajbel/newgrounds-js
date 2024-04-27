@@ -1,4 +1,4 @@
-import { Medal, SaveSlot, Score, ScoreBoard, Session } from "./objectModels";
+import type { Medal, SaveSlot, Score, ScoreBoard, Session } from "./objectModels";
 
 export type NGIOComponent = keyof NGIOData;
 

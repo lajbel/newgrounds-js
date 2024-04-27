@@ -1,6 +1,6 @@
-import { NewgroundsClient } from "./client";
-import { ScoreBoardGetScoresParams } from "./types/components";
-import { SaveSlot, Score, User } from "./types/objectModels";
+import type { NewgroundsClient } from "./client";
+import type { ScoreBoardGetScoresParams } from "./types/components";
+import type { SaveSlot, Score, User } from "./types/objectModels";
 
 export interface NewgroundsJS {
     /**

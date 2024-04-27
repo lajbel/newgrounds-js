@@ -1,5 +1,5 @@
 import { getClient } from "../helpers";
-import { ScoreBoardGetScoresParams } from "../types/components";
+import type { ScoreBoardGetScoresParams } from "../types/components";
 
 export const getScores = async (id: number, opt: ScoreBoardGetScoresParams) => {
     const { id: _, ...parsedOpt } = opt;

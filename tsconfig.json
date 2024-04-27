@@ -3,9 +3,10 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./dist",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true
   },
-  "include": [
+  "files": [
     "./dist/newgrounds.d.ts",
     "./dist/global.d.ts"
   ]

@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 import type { NGIOComponent, NGIOData, NGIOParams } from "./types/components";
-import type { Response } from "./types/objectModels";
+import type { NGIOResponse } from "./types/objectModels";
 
 export class NewgroundsClient {
     private _appID: string;
@@ -41,7 +41,7 @@ export class NewgroundsClient {
     async call<C extends NGIOComponent>(
         component: C,
         parameters?: NGIOParams[C],
-    ): Promise<Response<NGIOData[C]>> {
+    ): Promise<NGIOResponse<NGIOData[C]>> {
         const call = this.encryptCall({ component, parameters });
 
         const input = {

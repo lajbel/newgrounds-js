@@ -4,7 +4,7 @@ import { connect, login } from "./helpers/connect.js";
 import { unlockMedal } from "./helpers/medal.js";
 import { getScores, postScore } from "./helpers/scoreboard.js";
 import { getUsername, getVersion, isSupporter } from "./helpers/util.js";
-import { NewgroundsJS } from "./types.js";
+import type { NewgroundsJS } from "./types.js";
 
 const newgrounds: NewgroundsJS = {
     connect,
@@ -25,7 +25,7 @@ function capitalizeFirstLetter(string: string) {
 }
 
 for (const key in newgrounds) {
-    globalThis[capitalizeFirstLetter(key)] = newgrounds[key];
+    window[capitalizeFirstLetter(key)] = newgrounds[key];
 }
 
 export {

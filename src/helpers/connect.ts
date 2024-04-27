@@ -1,6 +1,6 @@
 import { NewgroundsClient } from "../client";
 import { getClient, setClient } from "../helpers";
-import { User } from "../types/objectModels";
+import type { User } from "../types/objectModels";
 
 export function connect(appID: string, encKey: string) {
     const client = new NewgroundsClient(appID, encKey);
@@ -13,11 +13,11 @@ export function connect(appID: string, encKey: string) {
 export const login = async () => {
     const checkedSession = await getClient().call("App.checkSession");
 
-    return new Promise<User>((resolve, reject) => {
+    return new Promise<User>((resolve) => {
         if (checkedSession?.result?.data?.session?.user) {
             resolve(checkedSession.result.data.session.user);
         } else {
-            const passportUrl = checkedSession.result.data.session.passport_url;
+            const passportUrl = checkedSession.result.data.session.passport_url!;
 
             globalThis.open(passportUrl, "Newgrounds Passport", "height=600,width=800");
 

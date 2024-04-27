@@ -1,17 +1,17 @@
 /**
  * Contains extra debugging information.
  */
-interface Debug {
+interface NGDebug {
     /** The time, in milliseconds, that it took to execute a request. */
     exec_time: string;
     /** A copy of the request object that was posted to the server. */
-    request: Request;
+    request: NGIORequest;
 }
 
 /**
  * Represents an error response from the server.
  */
-interface Error {
+interface NGError {
     /** A code indicating the error type. */
     code: number;
     /** Contains details about the error. */
@@ -57,7 +57,7 @@ export type Medal = {
 /**
  * A top-level wrapper containing any information needed to authenticate the application/user and any component calls being made.
  */
-interface Request {
+interface NGIORequest {
     /** Your application's unique ID. */
     app_id: string;
     /** If set to true, calls will be executed in debug mode. */
@@ -73,17 +73,17 @@ interface Request {
 /**
  * Contains all return output from an API request.
  */
-export interface Response<D extends object> {
+export interface NGIOResponse<D extends object> {
     /** If there was an error, this will contain the current version number of the API gateway. */
     api_version?: string;
     /** Your application's unique ID. */
     app_id: string;
     /** Contains extra information you may need when debugging (debug mode only). */
-    debug?: Debug;
+    debug?: NGDebug;
     /** If you passed an 'echo' value in your request object, it will be echoed here. */
     echo?: any;
     /** This will contain any error info if the success property is false. */
-    error?: Error;
+    error?: NGError;
     /** If there was an error, this will contain the URL for our help docs. */
     help_url?: string;
     /** This will be a Result object, or an array containing one-or-more Result objects. */
@@ -103,7 +103,7 @@ export type Result<T extends object> = {
     /** If you passed an 'echo' value in your execute object, it will be echoed here. */
     echo?: any;
     /** This will contain any error info if the success property is false. */
-    error?: Error;
+    error?: NGError;
     /** If false, there was a problem with your 'request' object. Details will be in the error property. */
     success: boolean;
 };
