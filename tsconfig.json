@@ -4,5 +4,9 @@
     "emitDeclarationOnly": true,
     "outDir": "./dist",
     "esModuleInterop": true
-  }
+  },
+  "include": [
+    "./dist/newgrounds.d.ts",
+    "./dist/global.d.ts"
+  ]
 }
