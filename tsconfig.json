@@ -3,7 +3,8 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./dist",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true
   },
   "files": [
     "./dist/newgrounds.d.ts",
