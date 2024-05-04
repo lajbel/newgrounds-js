@@ -20,14 +20,6 @@ const newgrounds: NewgroundsJS = {
     NewgroundsClient,
 };
 
-function capitalizeFirstLetter(string: string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-for (const key in newgrounds) {
-    window[capitalizeFirstLetter(key)] = newgrounds[key];
-}
-
 export {
     connect,
     getCloudData,
