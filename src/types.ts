@@ -1,4 +1,4 @@
-import type { NewgroundsClient } from "./client";
+import type { NewgroundsClient, NewgroundsConfig } from "./client";
 import type { ScoreBoardGetScoresParams } from "./types/components";
 import type { SaveSlot, Score, User } from "./types/objectModels";
 
@@ -11,7 +11,11 @@ export interface NewgroundsJS {
      *
      * @returns A new NewgroundsClient
      */
-    connect(appID: string, encKey: string): NewgroundsClient;
+    connect(
+        appID: string,
+        encKey: string,
+        config?: NewgroundsConfig,
+    ): NewgroundsClient;
     /**
      * Log in the user
      *
@@ -33,7 +37,10 @@ export interface NewgroundsJS {
      *
      * @returns Scores corresponding to the scoreboard
      */
-    getScores(scoreboardID: number, opt: ScoreBoardGetScoresParams): Promise<Score[]>;
+    getScores(
+        scoreboardID: number,
+        opt: ScoreBoardGetScoresParams,
+    ): Promise<Score[]>;
     /**
      * Post a score to a scoreboard
      *

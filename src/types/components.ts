@@ -1,4 +1,21 @@
-import type { Medal, SaveSlot, Score, ScoreBoard, Session } from "./objectModels";
+import type {
+    Medal,
+    SaveSlot,
+    Score,
+    ScoreBoard,
+    Session,
+} from "./objectModels";
+
+/**
+ * The period of time to get scores for.
+ *
+ * - "D" for daily
+ * - "W" for weekly
+ * - "M" for monthly
+ * - "Y" for yearly
+ * - "A" for all time
+ */
+export type Period = "D" | "W" | "M" | "Y" | "A";
 
 export type NGIOComponent = keyof NGIOData;
 
@@ -171,7 +188,7 @@ export type ScoreBoardGetBoardsParams = {};
 export type ScoreBoardGetScoresData = {
     app_id: string;
     limit: number;
-    period: string;
+    period: Period;
     scoreboard: ScoreBoard;
     scores: Score[];
     social?: boolean;
@@ -180,9 +197,9 @@ export type ScoreBoardGetScoresData = {
 
 export type ScoreBoardGetScoresParams = {
     app_id?: string;
-    id: number;
+    id?: number;
     limit?: number;
-    period?: string;
+    period?: Period;
     skip?: number;
     social?: boolean;
     tag?: string;

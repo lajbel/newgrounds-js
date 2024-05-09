@@ -115,7 +115,9 @@ export async function genDTS() {
                 throw new Error("NewgroundsJS must be an interface.");
             }
             for (const name in stmt.members) {
-                globalDts += `\tconst ${capitalizeFirstLetter(name)}: NewgroundsJS["${name}"]\n`;
+                globalDts += `\tconst ${
+                    capitalizeFirstLetter(name)
+                }: NewgroundsJS["${name}"]\n`;
             }
             globalGenerated = true;
         }

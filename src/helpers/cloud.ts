@@ -26,7 +26,10 @@ export const getCloudData = async (id: number) => {
 };
 
 export const setCloudData = async (id: number, data: string) => {
-    const slotResponse = await getClient().call("CloudSave.setData", { id, data });
+    const slotResponse = await getClient().call("CloudSave.setData", {
+        id,
+        data,
+    });
 
     return slotResponse.result.data.slot;
 };
