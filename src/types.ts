@@ -86,6 +86,12 @@ export interface NewgroundsJS {
      */
     setCloudData(id: number, value: string): Promise<SaveSlot>;
     /**
+     * Check if the game is current running on Newgrounds.com
+     *
+     * @returns A boolean indicating if the game is running on Newgrounds.com
+     */
+    isOnNewgrounds(): boolean;
+    /**
      * The NewgroundsClient class
      */
     NewgroundsClient: typeof NewgroundsClient;

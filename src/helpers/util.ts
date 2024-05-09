@@ -17,3 +17,8 @@ export const isSupporter = async () => {
 
     return session?.result?.data?.session?.user?.supporter;
 };
+
+export const isOnNewgrounds = () => {
+    return globalThis.location.hostname === "uploads.ungrounded.net"
+        || globalThis.location.hostname === "newgrounds.com";
+};

@@ -3,7 +3,12 @@ import { getCloudData, setCloudData } from "./helpers/cloud.js";
 import { connect, login } from "./helpers/connect.js";
 import { unlockMedal } from "./helpers/medal.js";
 import { getScores, postScore } from "./helpers/scoreboard.js";
-import { getUsername, getVersion, isSupporter } from "./helpers/util.js";
+import {
+    getUsername,
+    getVersion,
+    isOnNewgrounds,
+    isSupporter,
+} from "./helpers/util.js";
 import type { NewgroundsJS } from "./types.js";
 
 const newgrounds: NewgroundsJS = {
@@ -17,6 +22,7 @@ const newgrounds: NewgroundsJS = {
     isSupporter,
     getCloudData,
     setCloudData,
+    isOnNewgrounds,
     NewgroundsClient,
 };
 
@@ -26,6 +32,7 @@ export {
     getScores,
     getUsername,
     getVersion,
+    isOnNewgrounds,
     isSupporter,
     login,
     NewgroundsClient,
