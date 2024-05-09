@@ -30,7 +30,11 @@ export class NewgroundsClient {
         }
     }
 
-    private encryptCall(call) {
+    private encryptCall(call: {
+        component: NGIOComponent;
+        parameters?: NGIOParams[NGIOComponent] | null;
+        secure?: string;
+    }) {
         if (!this._cipher) return call;
 
         const aesKey = CryptoJS.enc.Base64.parse(this._cipher);
