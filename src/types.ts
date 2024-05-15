@@ -92,6 +92,18 @@ export interface NewgroundsJS {
      */
     isOnNewgrounds(): boolean;
     /**
+     * Pings the Newgrounds API
+     *
+     * @returns "pong"
+     */
+    ping(): Promise<string>;
+    /**
+     * Automatically pings the Newgrounds API, this is useful for keeping the session alive
+     *
+     * @param ms The interval in milliseconds
+     */
+    autoPing(ms: number): void;
+    /**
      * The NewgroundsClient class
      */
     NewgroundsClient: typeof NewgroundsClient;
