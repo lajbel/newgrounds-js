@@ -6,7 +6,7 @@ Newgrounds.js is the definitive library for connecting your game to the Newgroun
 
 - 🚀 Intuitive usage
 - 📖 Full documented with guides and examples.
-- 🌟 You can use the wrapper functions `unlockMedal` or make your own requests with `NewgroundsClient.call`
+- 🌟 You can use the wrapper functions `unlockMedal()` or make your own requests with `call("Medal.unlock")`
 - 📦 Async/Await by default
 - 📜 Full Typescript support
 - 🍜 ESM and CommonJS support
