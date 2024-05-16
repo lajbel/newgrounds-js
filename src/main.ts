@@ -1,5 +1,6 @@
 import { NewgroundsClient } from "./client.js";
 import { getCloudData, setCloudData } from "./helpers/cloud.js";
+import { loadSoundID } from "./helpers/songs.js";
 import { connect, login } from "./helpers/connect.js";
 import { unlockMedal } from "./helpers/medal.js";
 import { getScores, postScore } from "./helpers/scoreboard.js";
@@ -28,6 +29,7 @@ const newgrounds: NewgroundsJS = {
     NewgroundsClient,
     ping,
     autoPing,
+    loadSoundID,
 };
 
 export {

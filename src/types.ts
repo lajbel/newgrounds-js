@@ -106,6 +106,13 @@ export interface NewgroundsJS {
     /**
      * The NewgroundsClient class
      */
+    loadSoundID(id: string | number): Promise<ArrayBuffer>;
+    /**
+    * A function to load a sound as a ArrayBuffer based on the provided ID.
+    *
+    * @param {string} id - The ID of the sound to load.
+    * @return {Promise<ArrayBuffer>} A promise that resolves with the loaded sound as an ArrayBuffer.
+    */
     NewgroundsClient: typeof NewgroundsClient;
 }
 
@@ -120,5 +127,7 @@ export declare const getVersion: NewgroundsJS["getVersion"];
 export declare const isSupporter: NewgroundsJS["isSupporter"];
 export declare const getCloudData: NewgroundsJS["getCloudData"];
 export declare const setCloudData: NewgroundsJS["setCloudData"];
+export declare const loadSoundID: NewgroundsJS["loadSoundID"];
+
 
 export default ng;
