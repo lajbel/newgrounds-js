@@ -15,32 +15,25 @@ export function connect(
 }
 
 export const login = async () => {
-    const checkedSession = await getClient().call("App.checkSession");
+    const getSession = async () => (await getClient().call("App.checkSession"))?.result?.data
+    const checkedSession = await getSession();
 
     return new Promise<User>((resolve) => {
-        if (checkedSession?.result?.data?.session?.user) {
-            resolve(checkedSession.result.data.session.user);
-        } else {
-            const passportUrl = checkedSession.result.data.session
-                .passport_url!;
+        let session = checkedSession?.session;
+        if (session?.user) return resolve(session.user);
 
-            globalThis.open(
-                passportUrl,
-                "Newgrounds Passport",
-                "height=600,width=800",
-            );
+        const passportUrl = session.passport_url!;
 
-            const checkInterval = setInterval(async () => {
-                const checkedSession = await getClient().call(
-                    "App.checkSession",
-                );
+        globalThis.open(passportUrl, "Newgrounds Passport", "height=600,width=800");
 
-                if (checkedSession?.result?.data?.session?.user) {
-                    console.log("User logged in!");
-                    clearInterval(checkInterval);
-                    resolve(checkedSession.result.data.session.user);
-                }
-            }, 6000);
-        }
+        const checkInterval = setInterval(async () => {
+            const checkedSession = await getSession();
+
+            if (checkedSession?.session?.user) {
+                console.log("User logged in!");
+                clearInterval(checkInterval);
+                resolve(checkedSession?.session.user);
+            }
+        }, 6000);
     });
 };

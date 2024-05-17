@@ -40,7 +40,7 @@ const catchErr = async (e: any) => {
     return await Promise.reject(msg).catch((e) => e);
 };
 
-export default async function loadSoundID(id: string): Promise<ArrayBuffer> {
+export async function loadSoundID(id: string): Promise<ArrayBuffer> {
     if (!id) return Promise.reject("Song ID is empty!");
 
     let response: Awaited<ReturnType<typeof getPage>>;

@@ -18,19 +18,17 @@ export class NewgroundsClient {
         this._appID = appID;
         this._cipher = cipher;
         this._debug = config?.debug ?? false;
-        this.soundProxy = config?.soundProxy ?? "https://cors.niceeli.workers.dev/?";
+        this.soundProxy =
+            config?.soundProxy ?? "https://cors.niceeli.workers.dev/?";
 
         const url = new URL(globalThis.location.href);
         this._sessionID = url.searchParams.get("ngio_session_id") ?? null;
 
-        if (!this._sessionID) {
-            const startSession = async () => {
+        !this._sessionID &&
+            (async function startSession() {
                 const sessionStarted = await this.call("App.startSession");
                 this._sessionID = sessionStarted.result.data.session.id;
-            };
-
-            startSession();
-        }
+            })();
     }
 
     private encryptCall(call: {
@@ -72,27 +70,24 @@ export class NewgroundsClient {
 
         const url = "https://newgrounds.io/gateway_v3.php";
 
+        let response: Response;
         try {
-            const response = await fetch(url, {
+            response = await fetch(url, {
                 method: "POST",
                 body: formData,
                 mode: "cors",
             });
 
-            if (response.ok) {
-                const jsonResponse = await response.json();
-
-                if (this._debug) {
-                    console.log("Newgrounds API Response:", jsonResponse);
-                }
-
-                return jsonResponse;
-            } else {
-                throw new Error("Network response was not ok.");
-            }
+            if (!response.ok) throw new Error("Network response was not ok.");
         } catch (error) {
             console.error("Fetch Error:", error);
             throw error;
         }
+
+        const jsonResponse = await response.json();
+
+        if (this._debug) console.log("Newgrounds API Response:", jsonResponse);
+
+        return jsonResponse;
     }
 }
