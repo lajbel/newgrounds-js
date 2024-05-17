@@ -217,20 +217,6 @@ export type ScoreBoardPostScoreParams = {
     value: number;
 };
 
-function handleFactory(location) {
-    return (name) => `${location}.${name}`;
-}
-
-const handles = {
-    'App': handleFactory('App'),
-    'CloudSave': handleFactory('CloudSave'),
-    'Event': handleFactory('Event'),
-    'Gateway': handleFactory('Gateway'),
-    'Loader': handleFactory('Loader'),
-    'Medal': handleFactory('Medal'),
-    'ScoreBoard': handleFactory('ScoreBoard'),
-}
-
 export type NGIOData = {
     "App.checkSession": AppStartSessionData;
     "App.endSession": {};
