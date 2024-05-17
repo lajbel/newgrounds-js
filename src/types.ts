@@ -104,15 +104,15 @@ export interface NewgroundsJS {
      */
     autoPing(ms: number): void;
     /**
-     * The NewgroundsClient class
-     */
-    loadSoundID(id: string | number): Promise<ArrayBuffer>;
-    /**
     * A function to load a sound as a ArrayBuffer based on the provided ID.
     *
     * @param {string} id - The ID of the sound to load.
     * @return {Promise<ArrayBuffer>} A promise that resolves with the loaded sound as an ArrayBuffer.
     */
+    loadSoundID(id: string | number): Promise<ArrayBuffer>;
+    /**
+     * The NewgroundsClient class
+     */
     NewgroundsClient: typeof NewgroundsClient;
 }
 

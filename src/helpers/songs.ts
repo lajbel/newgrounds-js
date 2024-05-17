@@ -1,13 +1,12 @@
+import { getClient } from "../helpers";
 /*
-**  
-**  Created By: niceEli
-**  License: MIT
-**  
-**  Used In KaboomTS Before NGJS
-**  
-*/
-
-
+ **
+ **  Created By: niceEli
+ **  License: MIT
+ **
+ **  Used In KaboomTS Before NGJS
+ **
+ */
 export async function loadSoundID(id: string | number): Promise<ArrayBuffer> {
   async function getPage(url: string): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -55,7 +54,7 @@ export async function loadSoundID(id: string | number): Promise<ArrayBuffer> {
     url = url.substring(url.indexOf(':"') + 2);
     url = url.replace(/\\\//g, "/");
 
-    let songUrl = `https://cors.niceeli.workers.dev/?${encodeURI(url)}`;
+    let songUrl = getClient().soundProxy + encodeURI(url);
 
     let songArray: ArrayBuffer;
     songArray = await (await (await fetch(songUrl)).blob()).arrayBuffer();
