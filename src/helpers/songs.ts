@@ -59,8 +59,8 @@ export default async function loadSoundID(id: string): Promise<ArrayBuffer> {
   if (code !== 200) return catchErr(code);
 
   let url = data;
-  const chop = (start, end) => (url = url.substring(start, end));
-  const chopIndOf = (ind, jump) => chop(url.indexOf(ind + jump), null);
+  const chop = (start?: number, end?: number) => (url = url.substring(start, end));
+  const chopIndOf = (ind: string, jump: number) => chop(url.indexOf(ind) + jump);
 
   chopIndOf("<![CDATA[", 9);
   chopIndOf("embedController([", 17);
