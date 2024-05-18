@@ -18,17 +18,12 @@ export const isSupporter = async () => {
     return session?.result?.data?.session?.user?.supporter;
 };
 
-export const isOnNewgrounds = () => {
-    return globalThis.location.hostname === "uploads.ungrounded.net"
-        || globalThis.location.hostname === "newgrounds.com";
-};
+export const isOnNewgrounds = () =>
+    globalThis.location.hostname === "uploads.ungrounded.net" ||
+    globalThis.location.hostname === "newgrounds.com";
 
-export const ping = async () => {
-    return (await getClient().call("Gateway.ping")).result.data.pong;
-};
+export const ping = async () =>
+    (await getClient().call("Gateway.ping")).result.data.pong;
 
-export const autoPing = async (ms: number = 5000) => {
-    setInterval(() => {
-        ping();
-    }, ms);
-};
+export const autoPing = async (ms: number = 5000) =>
+    setInterval(() => ping(), ms);
