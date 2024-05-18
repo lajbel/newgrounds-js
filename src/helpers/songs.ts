@@ -1,12 +1,5 @@
 import { getClient } from "../helpers";
-/*
- **
- **  Created By: niceEli & SPCFork
- **  License: MIT
- **
- **  Used In KaboomTS Before NGJS
- **
- */
+
 async function getPage(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
