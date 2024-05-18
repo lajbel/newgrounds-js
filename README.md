@@ -45,3 +45,4 @@ await ng.postScore(12052012, 50);
 
 - [Newgrounds.io](https://newgrounds.io) API
 - [Javascript Wrapper](https://github.com/KilledByAPixel/newgrounds) by [KilledByAPixel](https://github.com/KilledByAPixel), used as the base for this library.
+- [niceEli](https://www.github.com/niceEli/), for making the Newgrounds song loader.
