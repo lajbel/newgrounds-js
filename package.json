@@ -24,7 +24,8 @@
     "build": "node scripts/buildAll.js",
     "dev": "node --watch-path ./src scripts/buildAll.js",
     "dts": "dts-bundle-generator -o dist/first.d.ts src/types.ts",
-    "demo": "esbuild --bundle demo/main.ts --outfile=demo/main.js --servedir=demo --sourcemap"
+    "demo": "esbuild --bundle demo/main.ts --outfile=demo/main.js --servedir=demo --sourcemap",
+    "fmt": "dprint fmt"
   },
   "files": [
     "dist/",
