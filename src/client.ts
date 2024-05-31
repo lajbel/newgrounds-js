@@ -24,13 +24,13 @@ export class NewgroundsClient {
         this._sessionID = url.searchParams.get("ngio_session_id") ?? null;
 
         if (!this._sessionID) {
-            const startSession = async () => {
-                const sessionStarted = await this.call("App.startSession");
-                this._sessionID = sessionStarted.result.data.session.id;
-            };
-
-            startSession();
+            this.startSession();
         }
+    }
+
+    private async startSession() {
+        const sessionStarted = await this.call("App.startSession");
+        this._sessionID = sessionStarted.result.data.session.id;
     }
 
     private encryptCall(call: {
