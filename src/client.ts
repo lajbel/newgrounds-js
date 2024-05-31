@@ -73,26 +73,22 @@ export class NewgroundsClient {
         const url = "https://newgrounds.io/gateway_v3.php";
 
         try {
-            const response = await fetch(url, {
+            var response = await fetch(url, {
                 method: "POST",
                 body: formData,
                 mode: "cors",
             });
 
-            if (response.ok) {
-                const jsonResponse = await response.json();
-
-                if (this._debug) {
-                    console.log("Newgrounds API Response:", jsonResponse);
-                }
-
-                return jsonResponse;
-            } else {
-                throw new Error("Network response was not ok.");
-            }
+            if (!response.ok) throw new Error("Network response was not ok.");
         } catch (error) {
             console.error("Fetch Error:", error);
             throw error;
         }
+
+        const jsonResponse = await response.json();
+
+        if (this._debug) console.log("Newgrounds API Response:", jsonResponse);
+
+        return jsonResponse;
     }
 }
