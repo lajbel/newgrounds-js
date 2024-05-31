@@ -13,19 +13,19 @@ async function getPage(url: string): Promise<string> {
   });
 }
 
+function catchErr(e: any) {
+  if (e === 404)
+    return Promise.reject(
+      "The song could not be found! Please check the song id and try again! (error 404)"
+    );
+
+  return Promise.reject(
+    `Something went wrong! Please check your internet connection and try again! Error Code: ${e}`
+  );
+};
+
 export default async function loadSoundID(id: string): Promise<ArrayBuffer> {
   if (!id) return Promise.reject("Song ID is empty!");
-
-  const catchErr = (e: any) => {
-    if (e === 404)
-      return Promise.reject(
-        "The song could not be found! Please check the song id and try again! (error 404)"
-      );
-
-    return Promise.reject(
-      `Something went wrong! Please check your internet connection and try again! Error Code: ${e}`
-    );
-  };
 
   let response: Awaited<ReturnType<typeof getPage>>;
   try {
