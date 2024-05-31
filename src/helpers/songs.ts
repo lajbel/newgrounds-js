@@ -27,9 +27,8 @@ export default async function loadSoundID(id: string): Promise<ArrayBuffer> {
     );
   };
 
-  let response: Awaited<ReturnType<typeof getPage>>;
   try {
-    response = await getPage(
+    var response = await getPage(
       `https://api.allorigins.win/get?url=https%3A%2F%2Fwww.newgrounds.com%2Faudio%2Flisten%2F${id}`
     );
   } catch (error) {
@@ -52,10 +51,9 @@ export default async function loadSoundID(id: string): Promise<ArrayBuffer> {
 
   let songUrl = getClient().soundProxy + encodeURI(url);
 
-  let songArray: ArrayBuffer;
   try {
     let request = await fetch(songUrl);
-    songArray = await request.arrayBuffer();
+    var songArray = await request.arrayBuffer();
   } catch (error) {
     return await catchErr(error).catch((e) => e);
   }
