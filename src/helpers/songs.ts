@@ -13,7 +13,7 @@ async function getPage(url: string): Promise<string> {
   });
 }
 
-export default async function loadSoundID(id: string): Promise<ArrayBuffer> {
+export async function loadSoundID(id: string): Promise<ArrayBuffer> {
   if (!id) return Promise.reject("Song ID is empty!");
 
   const catchErr = (e: any) => {
