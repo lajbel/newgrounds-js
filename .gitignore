@@ -5,3 +5,4 @@ node_modules/
 test.js
 demo/
 dist/
+.replit

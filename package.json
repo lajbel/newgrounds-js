@@ -14,7 +14,6 @@
   "license": "MIT",
   "homepage": "https://newgroundsjs.lajbel.com/",
   "repository": "github:lajbel/newgrounds-js",
-
   "type": "module",
   "main": "./dist/newgrounds.cjs",
   "module": "./dist/newgrounds.mjs",
@@ -53,13 +52,14 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.13",
     "dprint": "^0.45.1",
     "dts-bundle-generator": "^9.5.1",
-    "esbuild": "^0.13.7",
+    "esbuild": "^0.13.15",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "crypto-js": "^4.2.0"
+    "crypto-js": "^4.2.0",
+    "kapcacher": "^0.2.2"
   }
 }
