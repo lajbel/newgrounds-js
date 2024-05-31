@@ -20,7 +20,7 @@
   "module": "./dist/newgrounds.mjs",
   "types": "./dist/newgrounds.d.ts",
   "scripts": {
-    "start": "npm run build",
+    "start": "npm run dts && npm run build",
     "build": "node scripts/buildAll.js",
     "dev": "node --watch-path ./src scripts/buildAll.js",
     "dts": "dts-bundle-generator -o dist/first.d.ts src/types.ts",
