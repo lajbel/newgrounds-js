@@ -45,5 +45,17 @@ export async function getArtURI(
     }
 
     let imgSrc = (imgNode as any)?.["href"];
-    return imgSrc ? getClient().soundProxy + encodeURI(imgSrc) : null;
+
+    const toDataURL = url => fetch(url)
+        .then(response => response.blob())
+        .then(blob => new Promise((resolve, reject) => {
+            const reader = new FileReader()
+            reader.onloadend = () => resolve(reader.result)
+            reader.onerror = reject
+            reader.readAsDataURL(blob)
+        }))
+
+    let imageB: string | null = (await toDataURL(imgSrc ? getClient().soundProxy + encodeURI(imgSrc) : null)) as string | null;
+
+    return imageB;
 }
