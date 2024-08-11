@@ -1,11 +1,26 @@
 import { getClient } from "../helpers";
+import { staticPlugin } from "kapcacher";
 const CORS_API = getClient().soundProxy;
 const SAFENG_IMG_API = `${CORS_API}https://www.newgrounds.com/art/view`;
+
+const CACHE_NAME = "NGjs";
+const CACHE_NS = "art";
+const ngCache = new staticPlugin.Cacher(CACHE_NAME);
 
 export async function getArtURI(
     artURI: string = "amyspark-ng/mrak-fanart",
     idx: number = 1,
 ): Promise<string | null> {
+    let hiddenName: string = artURI + "\\" + idx.toString();
+    if (!ngCache.initialized) await ngCache.init();
+
+    let ns = ngCache.createNamespace(CACHE_NS);
+
+    let res = await ns.get(hiddenName)
+    if (res) {
+        return res.text()
+    };
+
     let imgNode: Node | null = null;
 
     // @@ Fetch Block
@@ -56,6 +71,8 @@ export async function getArtURI(
         }))
 
     let imageB: string | null = (await toDataURL(imgSrc ? getClient().soundProxy + encodeURI(imgSrc) : null)) as string | null;
+    
+    await ns.put(hiddenName, new Response(imageB));
 
     return imageB;
 }
