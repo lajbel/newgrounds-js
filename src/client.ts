@@ -18,7 +18,8 @@ export class NewgroundsClient {
         this._appID = appID;
         this._cipher = cipher;
         this._debug = config?.debug ?? false;
-        this.soundProxy = config?.soundProxy ?? "https://cors.niceeli.workers.dev/?";
+        this.soundProxy = config?.soundProxy
+            ?? "https://cors.niceeli.workers.dev/?";
 
         const url = new URL(globalThis.location.href);
         this._sessionID = url.searchParams.get("ngio_session_id") ?? null;
