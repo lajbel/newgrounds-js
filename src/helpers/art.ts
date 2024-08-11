@@ -1,11 +1,24 @@
-import { getClient } from "../helpers";
 import { staticPlugin } from "kapcacher";
+import { getClient } from "../helpers";
 const CORS_API = getClient().soundProxy;
 const SAFENG_IMG_API = `${CORS_API}https://www.newgrounds.com/art/view`;
 
 const CACHE_NAME = "NGjs";
 const CACHE_NS = "art";
 const ngCache = new staticPlugin.Cacher(CACHE_NAME);
+
+const toDataURL = (url: any) =>
+    fetch(url)
+        .then((response) => response.blob())
+        .then(
+            (blob) =>
+                new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                }),
+        );
 
 export async function getArtURI(
     artURI: string = "amyspark-ng/mrak-fanart",
@@ -16,10 +29,10 @@ export async function getArtURI(
 
     let ns = ngCache.createNamespace(CACHE_NS);
 
-    let res = await ns.get(hiddenName)
+    let res = await ns.get(hiddenName);
     if (res) {
-        return res.text()
-    };
+        return res.text();
+    }
 
     let imgNode: Node | null = null;
 
@@ -33,6 +46,19 @@ export async function getArtURI(
     }
 
     let artRow = doc.querySelectorAll(".art-image-row").length > 0;
+
+    let mediaBlockCenter = doc.querySelectorAll(".ng-img-container-sync");
+
+    if (mediaBlockCenter.length > 0 && !artRow) {
+        imgNode = mediaBlockCenter[idx - 1].children[0].children[0];
+
+        let fMg = CORS_API + (imgNode as any)["src"];
+
+        let fBsf = (await toDataURL(fMg)) as string | null;
+
+        await ns.put(hiddenName, new Response(fBsf));
+        return fBsf;
+    }
 
     let hasMultiImage;
 
@@ -61,17 +87,10 @@ export async function getArtURI(
 
     let imgSrc = (imgNode as any)?.["href"];
 
-    const toDataURL = url => fetch(url)
-        .then(response => response.blob())
-        .then(blob => new Promise((resolve, reject) => {
-            const reader = new FileReader()
-            reader.onloadend = () => resolve(reader.result)
-            reader.onerror = reject
-            reader.readAsDataURL(blob)
-        }))
+    let imageB: string | null = (await toDataURL(
+        imgSrc ? CORS_API + encodeURI(imgSrc) : null,
+    )) as string | null;
 
-    let imageB: string | null = (await toDataURL(imgSrc ? getClient().soundProxy + encodeURI(imgSrc) : null)) as string | null;
-    
     await ns.put(hiddenName, new Response(imageB));
 
     return imageB;
