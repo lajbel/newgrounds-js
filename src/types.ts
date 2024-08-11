@@ -104,12 +104,20 @@ export interface NewgroundsJS {
      */
     autoPing(ms: number): void;
     /**
-    * A function to load a sound as a ArrayBuffer based on the provided ID.
-    *
-    * @param {string} id - The ID of the sound to load.
-    * @return {Promise<ArrayBuffer>} A promise that resolves with the loaded sound as an ArrayBuffer.
-    */
+     * A function to load a sound as a ArrayBuffer based on the provided ID.
+     *
+     * @param {string} id - The ID of the sound to load.
+     * @return {Promise<ArrayBuffer>} A promise that resolves with the loaded sound as an ArrayBuffer.
+     */
     loadSoundID(id: string | number): Promise<ArrayBuffer>;
+    /**
+     * Fetches the URI of an art image from Newgrounds.
+     *
+     * @param {string} artURI - The URI of the art on Newgrounds.
+     * @param {number} idx - The index of the image to fetch. (1-indexed)
+     * @returns {Promise<string | null>} The source URI of the image or null if not found.
+     */
+    getArtURI(artURI?: string, idx?: number): Promise<string | null>;
     /**
      * The NewgroundsClient class
      */
@@ -128,6 +136,6 @@ export declare const isSupporter: NewgroundsJS["isSupporter"];
 export declare const getCloudData: NewgroundsJS["getCloudData"];
 export declare const setCloudData: NewgroundsJS["setCloudData"];
 export declare const loadSoundID: NewgroundsJS["loadSoundID"];
-
+export declare const getArtURI: NewgroundsJS["getArtURI"];
 
 export default ng;

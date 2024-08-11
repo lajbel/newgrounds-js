@@ -1,9 +1,10 @@
 import { NewgroundsClient } from "./client.js";
+import { getArtURI } from "./helpers/art.js";
 import { getCloudData, setCloudData } from "./helpers/cloud.js";
-import { loadSoundID } from "./helpers/songs.js";
 import { connect, login } from "./helpers/connect.js";
 import { unlockMedal } from "./helpers/medal.js";
 import { getScores, postScore } from "./helpers/scoreboard.js";
+import { loadSoundID } from "./helpers/songs.js";
 import {
     autoPing,
     getUsername,
@@ -30,6 +31,7 @@ const newgrounds: NewgroundsJS = {
     ping,
     autoPing,
     loadSoundID,
+    getArtURI,
 };
 
 export {

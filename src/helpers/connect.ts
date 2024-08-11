@@ -16,8 +16,8 @@ export function connect(
 
 const getSessionData = async () => {
     let session = await getClient().call("App.checkSession");
-    return session?.result?.data
-}
+    return session?.result?.data;
+};
 
 export const login = async () => {
     let checkedSession = await getSessionData();
@@ -27,7 +27,7 @@ export const login = async () => {
         if (session?.user) {
             return resolve(session.user);
         }
-        
+
         let passportUrl = session.passport_url!;
 
         globalThis.open(
@@ -45,6 +45,5 @@ export const login = async () => {
                 resolve(checkedSession.session.user);
             }
         }, 6000);
-        
     });
 };
