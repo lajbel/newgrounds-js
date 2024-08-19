@@ -69,6 +69,12 @@ export interface NewgroundsJS {
      */
     isSupporter(): Promise<boolean | undefined>;
     /**
+     * Check if the current user is logged in
+     *
+     * @returns A boolean indicating if the user is logged in or not
+     */
+    isLoggedIn(): Promise<boolean | undefined>;
+    /**
      * Get cloud data from a save slot
      *
      * @param id The id of the save slot
@@ -133,6 +139,7 @@ export declare const postScore: NewgroundsJS["postScore"];
 export declare const getUsername: NewgroundsJS["getUsername"];
 export declare const getVersion: NewgroundsJS["getVersion"];
 export declare const isSupporter: NewgroundsJS["isSupporter"];
+export declare const isLoggedIn: NewgroundsJS["isLoggedIn"];
 export declare const getCloudData: NewgroundsJS["getCloudData"];
 export declare const setCloudData: NewgroundsJS["setCloudData"];
 export declare const loadSoundID: NewgroundsJS["loadSoundID"];
