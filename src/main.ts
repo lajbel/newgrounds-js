@@ -11,6 +11,7 @@ import {
     getVersion,
     isOnNewgrounds,
     isSupporter,
+    isLoggedIn,
     ping,
 } from "./helpers/util.js";
 import type { NewgroundsJS } from "./types.js";
@@ -24,6 +25,7 @@ const newgrounds: NewgroundsJS = {
     getUsername,
     getVersion,
     isSupporter,
+    isLoggedIn,
     getCloudData,
     setCloudData,
     isOnNewgrounds,
