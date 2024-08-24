@@ -6,6 +6,12 @@ export const getUsername = async () => {
     return session?.result?.data?.session?.user?.name;
 };
 
+export const getSession = async () => {
+    const session = await getClient().call("App.checkSession");
+
+    return session?.result?.data?.session;
+};
+
 export const getVersion = async () => {
     const version = await getClient().call("App.getCurrentVersion");
 

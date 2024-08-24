@@ -8,6 +8,7 @@ import { loadSoundID } from "./helpers/songs.js";
 import {
     autoPing,
     getUsername,
+    getSession,
     getVersion,
     isOnNewgrounds,
     isSupporter,
@@ -21,6 +22,7 @@ const newgrounds: NewgroundsJS = {
     login,
     unlockMedal,
     getScores,
+    getSession,
     postScore,
     getUsername,
     getVersion,
@@ -40,6 +42,7 @@ export {
     connect,
     getCloudData,
     getScores,
+    getSession,
     getUsername,
     getVersion,
     isOnNewgrounds,
