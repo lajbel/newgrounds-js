@@ -1,6 +1,6 @@
 import type { NewgroundsClient, NewgroundsConfig } from "./client";
 import type { ScoreBoardGetScoresParams } from "./types/components";
-import type { SaveSlot, Score, User } from "./types/objectModels";
+import type { SaveSlot, Score, Session, User } from "./types/objectModels";
 
 export interface NewgroundsJS {
     /**
@@ -62,6 +62,12 @@ export interface NewgroundsJS {
      * @returns The version of your Newgrounds Project
      */
     getVersion(): Promise<string>;
+    /**
+     * Get the current session
+     *
+     * @returns The session of the game
+     */
+    getSession(): Promise<Session>;
     /**
      * Check if the current user is a supporter
      *
