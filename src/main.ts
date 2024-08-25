@@ -7,12 +7,12 @@ import { getScores, postScore } from "./helpers/scoreboard.js";
 import { loadSoundID } from "./helpers/songs.js";
 import {
     autoPing,
-    getUsername,
     getSession,
+    getUsername,
     getVersion,
+    isLoggedIn,
     isOnNewgrounds,
     isSupporter,
-    isLoggedIn,
     ping,
 } from "./helpers/util.js";
 import type { NewgroundsJS } from "./types.js";

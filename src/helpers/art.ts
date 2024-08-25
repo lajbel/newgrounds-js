@@ -1,7 +1,6 @@
 import { staticPlugin } from "kapcacher";
 import { getClient } from "../helpers";
 
-
 const CACHE_NAME = "NGjs";
 const CACHE_NS = "art";
 const ngCache = new staticPlugin.Cacher(CACHE_NAME);
