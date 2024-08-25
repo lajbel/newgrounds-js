@@ -1,6 +1,6 @@
 {
   "name": "newgrounds.js",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "The definitive Newgrounds.io library for Node.js and the browser.",
   "keywords": [
     "newgrounds",
@@ -19,12 +19,13 @@
   "module": "./dist/newgrounds.mjs",
   "types": "./dist/newgrounds.d.ts",
   "scripts": {
-    "install": "npm run dts && npm run build",
+    "setup": "npm run dts && npm run build",
     "build": "node scripts/buildAll.js",
     "dev": "vite",
     "lib:dev": "node --watch-path ./src scripts/buildAll.js",
     "dts": "dts-bundle-generator -o dist/first.d.ts src/types.ts",
-    "fmt": "dprint fmt"
+    "fmt": "dprint fmt",
+    "prepare": "npm run setup"
   },
   "files": [
     "dist/",
