@@ -29,9 +29,11 @@ export class NewgroundsClient {
         }
     }
 
-    private async startSession() {
+    async startSession() {
         const sessionStarted = await this.call("App.startSession");
         this._sessionID = sessionStarted.result.data.session.id;
+
+        return sessionStarted.result.data.session;
     }
 
     private encryptCall(call: {

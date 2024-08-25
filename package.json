@@ -19,9 +19,10 @@
   "module": "./dist/newgrounds.mjs",
   "types": "./dist/newgrounds.d.ts",
   "scripts": {
-    "start": "npm run dts && npm run build",
+    "install": "npm run dts && npm run build",
     "build": "node scripts/buildAll.js",
-    "dev": "node --watch-path ./src scripts/buildAll.js",
+    "dev": "vite",
+    "lib:dev": "node --watch-path ./src scripts/buildAll.js",
     "dts": "dts-bundle-generator -o dist/first.d.ts src/types.ts",
     "demo": "esbuild --bundle demo/main.ts --outfile=demo/main.js --servedir=demo --sourcemap",
     "fmt": "dprint fmt"
@@ -56,10 +57,13 @@
     "dprint": "^0.45.1",
     "dts-bundle-generator": "^9.5.1",
     "esbuild": "^0.13.15",
-    "typescript": "^5.4.5"
+    "kaplay": "3001.0.0-alpha.22",
+    "typescript": "^5.4.5",
+    "vite": "^5.4.2"
   },
   "dependencies": {
     "crypto-js": "^4.2.0",
     "kapcacher": "^0.2.2"
-  }
+  },
+  "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
 }

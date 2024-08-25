@@ -1,7 +1,6 @@
 import { staticPlugin } from "kapcacher";
 import { getClient } from "../helpers";
-const CORS_API = getClient().soundProxy;
-const SAFENG_IMG_API = `${CORS_API}https://www.newgrounds.com/art/view`;
+
 
 const CACHE_NAME = "NGjs";
 const CACHE_NS = "art";
@@ -24,6 +23,9 @@ export async function getArtURI(
     artURI: string = "amyspark-ng/mrak-fanart",
     idx: number = 1,
 ): Promise<string | null> {
+    const CORS_API = getClient().soundProxy;
+    const SAFENG_IMG_API = `${CORS_API}https://www.newgrounds.com/art/view`;
+
     let hiddenName: string = artURI + "\\" + idx.toString();
     if (!ngCache.initialized) await ngCache.init();
 
