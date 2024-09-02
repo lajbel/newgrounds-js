@@ -1,6 +1,10 @@
 # Changelog
 
-## v4.0.0 (unreleased)
+## v4.0.1
+
+- added `getMedals()` method for get all medals from the game
+
+## v4.0.0
 
 ### Features
 
