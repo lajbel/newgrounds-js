@@ -2,7 +2,7 @@ import { NewgroundsClient } from "./client.js";
 import { getArtURI } from "./helpers/art.js";
 import { getCloudData, setCloudData } from "./helpers/cloud.js";
 import { connect, login } from "./helpers/connect.js";
-import { unlockMedal } from "./helpers/medal.js";
+import { getMedals, unlockMedal } from "./helpers/medal.js";
 import { getScores, postScore } from "./helpers/scoreboard.js";
 import { loadSoundID } from "./helpers/songs.js";
 import {
@@ -36,19 +36,26 @@ const newgrounds: NewgroundsJS = {
     autoPing,
     loadSoundID,
     getArtURI,
+    getMedals,
 };
 
 export {
+    autoPing,
     connect,
+    getArtURI,
     getCloudData,
+    getMedals,
     getScores,
     getSession,
     getUsername,
     getVersion,
+    isLoggedIn,
     isOnNewgrounds,
     isSupporter,
+    loadSoundID,
     login,
     NewgroundsClient,
+    ping,
     postScore,
     setCloudData,
     unlockMedal,

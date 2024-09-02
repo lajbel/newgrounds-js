@@ -1,6 +1,12 @@
 import type { NewgroundsClient, NewgroundsConfig } from "./client";
 import type { ScoreBoardGetScoresParams } from "./types/components";
-import type { SaveSlot, Score, Session, User } from "./types/objectModels";
+import type {
+    Medal,
+    SaveSlot,
+    Score,
+    Session,
+    User,
+} from "./types/objectModels";
 
 export interface NewgroundsJS {
     /**
@@ -19,9 +25,9 @@ export interface NewgroundsJS {
     /**
      * Log in the user
      *
-     * @returns The user that was logged in
+     * @returns The user that was logged in, if successful or null if not
      */
-    login(): Promise<User>;
+    login(): Promise<User | null>;
     /**
      * Unlock a medal
      *
@@ -30,6 +36,12 @@ export interface NewgroundsJS {
      * @returns A boolean indicating if the medal was unlocked
      */
     unlockMedal(medalID: number): Promise<boolean>;
+    /**
+     * Get the list of medals
+     *
+     * @returns The list of medals
+     */
+    getMedals(): Promise<Medal[]>;
     /**
      * Get the scores for a scoreboard
      *
