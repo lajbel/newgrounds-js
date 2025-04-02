@@ -152,6 +152,7 @@ export declare const ng: NewgroundsJS;
 export declare const connect: NewgroundsJS["connect"];
 export declare const login: NewgroundsJS["login"];
 export declare const unlockMedal: NewgroundsJS["unlockMedal"];
+export declare const getMedals: NewgroundsJS["getMedals"];
 export declare const getScores: NewgroundsJS["getScores"];
 export declare const postScore: NewgroundsJS["postScore"];
 export declare const getUsername: NewgroundsJS["getUsername"];
